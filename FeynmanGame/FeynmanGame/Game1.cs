@@ -11,6 +11,7 @@ namespace FeynmanGame
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
+        Texture2D background;
 
         private Texture text;
 
@@ -21,6 +22,7 @@ namespace FeynmanGame
             this.graphics.PreferredBackBufferHeight = 1000;
             this.graphics.PreferredBackBufferWidth = 1920;
             this.graphics.IsFullScreen = true;
+            
         }
 
         /// <summary>
@@ -45,10 +47,12 @@ namespace FeynmanGame
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
+            this.background = this.Content.Load<Texture2D>(@"Background");
+
             // TODO: use this.Content to load your game content here
             //using (var stream = TitleContainer )
             //{
-                
+
             //}
         }
 
@@ -83,7 +87,9 @@ namespace FeynmanGame
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.LightGray);
-
+            spriteBatch.Begin();
+            spriteBatch.Draw(background, new Rectangle(0, 0, background.Width, background.Height), Color.White);
+            spriteBatch.End();
             // TODO: Add your drawing code here
 
             base.Draw(gameTime);
