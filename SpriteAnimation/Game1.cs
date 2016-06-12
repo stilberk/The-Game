@@ -13,15 +13,8 @@ namespace SpriteAnimation
         const int HEROSPEED = 15;
         const int BGRSPEED = 35;
         readonly GraphicsDeviceManager graphics;
-        private AnimatedSprite animatedSprite;
-        private AnimatedSprite animatedSpriteDown;
-        private AnimatedSprite animatedSpriteLeft;
-        private AnimatedSprite animatedSpriteRight;
-        private AnimatedSprite animatedSpriteStandingDown;
-        private AnimatedSprite animatedSpriteStandingLeft;
-        private AnimatedSprite animatedSpriteStandingRight;
-        private AnimatedSprite animatedSpriteStandingUp;
-        private AnimatedSprite animatedSpriteUp;
+
+        private Player hero;
         private KnoledgeBook kBook;
 
         Texture2D bgrImage;
@@ -84,15 +77,9 @@ namespace SpriteAnimation
             Texture2D standingLeft = Content.Load<Texture2D>("STANDINGLEFT");
             Texture2D standingDown = Content.Load<Texture2D>("STANDINGDOWN");
             Texture2D standingUp = Content.Load<Texture2D>("STANDINGUP");
-            animatedSprite = new AnimatedSprite(standingRight, 1, 9);
-            animatedSpriteLeft = new AnimatedSprite(heroTexture, 1, 9);
-            animatedSpriteRight = new AnimatedSprite(rightTexture, 1, 9);
-            animatedSpriteUp = new AnimatedSprite(upTexture, 1, 9);
-            animatedSpriteDown = new AnimatedSprite(downTexture, 1, 9);
-            animatedSpriteStandingLeft = new AnimatedSprite(standingLeft, 1, 1);
-            animatedSpriteStandingRight = new AnimatedSprite(standingRight, 1, 1);
-            animatedSpriteStandingDown = new AnimatedSprite(standingDown, 1, 1);
-            animatedSpriteStandingUp = new AnimatedSprite(standingUp, 1, 1);
+
+            hero = new Player(standingRight, heroTexture, rightTexture, upTexture, 
+                downTexture, standingLeft, standingDown, standingUp);
             kBook = new KnoledgeBook(Content.Load<Texture2D>("Book1"));
         }
 
@@ -120,28 +107,28 @@ namespace SpriteAnimation
 
             if (keyPressed.IsKeyDown(Keys.Right))
             {
-                animatedSprite = animatedSpriteRight;
+                hero.AnimatedSprite = hero.AnimatedSpriteRight;
                 lastDirection = "right";
                 heroLocation.X += HEROSPEED;
             }
 
             if (keyPressed.IsKeyDown(Keys.Left))
             {
-                animatedSprite = animatedSpriteLeft;
+                hero.AnimatedSprite = hero.AnimatedSpriteLeft;
                 lastDirection = "left";
                 heroLocation.X -= HEROSPEED;
             }
 
             if (keyPressed.IsKeyDown(Keys.Up))
             {
-                animatedSprite = animatedSpriteUp;
+                hero.AnimatedSprite = hero.AnimatedSpriteUp;
                 lastDirection = "up";
                 heroLocation.Y -= HEROSPEED;
             }
 
             if (keyPressed.IsKeyDown(Keys.Down))
             {
-                animatedSprite = animatedSpriteDown;
+                hero.AnimatedSprite = hero.AnimatedSpriteDown;
                 lastDirection = "down";
                 heroLocation.Y += HEROSPEED;
             }
@@ -149,24 +136,24 @@ namespace SpriteAnimation
 
             if (lastDirection == "right" && Keyboard.GetState().IsKeyUp(Keys.Right))
             {
-                animatedSprite = animatedSpriteStandingRight;
+                hero.AnimatedSprite = hero.AnimatedSpriteStandingRight;
             }
             if (lastDirection == "left" && Keyboard.GetState().IsKeyUp(Keys.Left))
             {
-                animatedSprite = animatedSpriteStandingLeft;
+                hero.AnimatedSprite = hero.AnimatedSpriteStandingLeft;
             }
             if (lastDirection == "down" && Keyboard.GetState().IsKeyUp(Keys.Down))
             {
-                animatedSprite = animatedSpriteStandingDown;
+                hero.AnimatedSprite = hero.AnimatedSpriteStandingDown;
             }
             if (lastDirection == "up" && Keyboard.GetState().IsKeyUp(Keys.Up))
             {
-                animatedSprite = animatedSpriteStandingUp;
+                hero.AnimatedSprite = hero.AnimatedSpriteStandingUp;
             }
 
 
             //Add your update logic here
-            animatedSprite.Update();
+            hero.AnimatedSprite.Update();
 
             //Limits of screen - not implemented
             //int maxX = 3200 - 20;
@@ -237,8 +224,8 @@ namespace SpriteAnimation
 
             kBook.Draw(spriteBatch);
 
+            hero.AnimatedSprite.Draw(spriteBatch, heroLocation);
 
-            animatedSprite.Draw(spriteBatch, heroLocation);
             base.Draw(gameTime);
         }
     }

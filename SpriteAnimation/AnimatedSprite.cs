@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace SpriteAnimation
 {
-    class AnimatedSprite
+    public class AnimatedSprite
     {
         private int currentFrame;
         private readonly int totalFrames;
