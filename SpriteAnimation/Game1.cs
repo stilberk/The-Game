@@ -22,12 +22,13 @@ namespace SpriteAnimation
         private AnimatedSprite animatedSpriteStandingRight;
         private AnimatedSprite animatedSpriteStandingUp;
         private AnimatedSprite animatedSpriteUp;
+        private KnoledgeBook kBook;
 
         Texture2D bgrImage;
         //Create a Rectangle that will define the limits for the main game screen
         Rectangle mainFrame;
 
-        public Vector2 heroLocation = new Vector2(100, 260);
+        public Vector2 heroLocation = new Vector2(300, 200);
         private string lastDirection = "down";
         public Vector2 position1, position2;
         SpriteBatch spriteBatch;
@@ -92,6 +93,7 @@ namespace SpriteAnimation
             animatedSpriteStandingRight = new AnimatedSprite(standingRight, 1, 1);
             animatedSpriteStandingDown = new AnimatedSprite(standingDown, 1, 1);
             animatedSpriteStandingUp = new AnimatedSprite(standingUp, 1, 1);
+            kBook = new KnoledgeBook(Content.Load<Texture2D>("Book1"));
         }
 
         /// <summary>
@@ -232,6 +234,10 @@ namespace SpriteAnimation
             spriteBatch.End();
 
             // TODO: Add your drawing code here
+
+            kBook.Draw(spriteBatch);
+
+
             animatedSprite.Draw(spriteBatch, heroLocation);
             base.Draw(gameTime);
         }
