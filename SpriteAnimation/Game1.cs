@@ -22,11 +22,16 @@ namespace SpriteAnimation
         private AnimatedSprite animatedSpriteStandingRight;
         private AnimatedSprite animatedSpriteStandingUp;
         private AnimatedSprite animatedSpriteUp;
-        Texture2D bgrImgage;
+
+        Texture2D bgrImage;
+        //Create a Rectangle that will define the limits for the main game screen
+        Rectangle mainFrame;
+
         public Vector2 heroLocation = new Vector2(100, 260);
         private string lastDirection = "down";
         public Vector2 position1, position2;
         SpriteBatch spriteBatch;
+        
 
 
         public Game1()
@@ -68,7 +73,9 @@ namespace SpriteAnimation
             spriteBatch = new SpriteBatch(GraphicsDevice);
             //use this.Content to load your game content here
             Texture2D heroTexture = Content.Load<Texture2D>("LEFT");
-            bgrImgage = Content.Load<Texture2D>("BACKGROUND");
+            bgrImage = Content.Load<Texture2D>("BACKGROUND-DESERT");
+            //Set the rectangle parameters.
+            //mainFrame = new Rectangle(0, 0, 3200, 1600);
             Texture2D rightTexture = Content.Load<Texture2D>("RIGHT");
             Texture2D upTexture = Content.Load<Texture2D>("UP");
             Texture2D downTexture = Content.Load<Texture2D>("DOWN");
@@ -159,6 +166,20 @@ namespace SpriteAnimation
             //Add your update logic here
             animatedSprite.Update();
 
+            //Limits of screen - not implemented
+            //int maxX = 3200 - 20;
+            //int maxY = 1600 - 20;
+
+            //if (heroLocation.X >= maxX || heroLocation.X < 20)
+            //{
+            //    heroLocation.X -= 20;
+            //}
+
+            //if (heroLocation.Y >= maxY || heroLocation.Y < 20)
+            //{
+            //    heroLocation.Y -= 20;
+            //}
+
             if (heroLocation.X >= 700)
             {
                 position1.X -= BGRSPEED;
@@ -202,7 +223,11 @@ namespace SpriteAnimation
 
             spriteBatch.Begin();
             // spriteBatch.Draw(bgrImgage, Vector2.Zero);
-            spriteBatch.Draw(bgrImgage, position1, Color.White);
+
+            //Draw limits of the screen
+            spriteBatch.Draw(bgrImage, position1, Color.White);
+            //spriteBatch.Draw(bgrImage, mainFrame, Color.White);
+
             // spriteBatch.Draw(bgrImgage, position2, Color.White);
             spriteBatch.End();
 
