@@ -21,7 +21,7 @@ namespace SpriteAnimation
         //Create a Rectangle that will define the limits for the main game screen
         Rectangle mainFrame;
 
-        public Vector2 heroLocation = new Vector2(300, 200);
+        public Vector2 heroLocation = new Vector2(290, 0);
         private string lastDirection = "down";
         public Vector2 position1, position2;
         SpriteBatch spriteBatch;
@@ -31,15 +31,15 @@ namespace SpriteAnimation
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
-            graphics.PreferredBackBufferWidth = 800;
-            graphics.PreferredBackBufferHeight = 600;
+            graphics.PreferredBackBufferWidth = 1024;
+            graphics.PreferredBackBufferHeight = 1024;
             graphics.ApplyChanges();
             Content.RootDirectory = "Content";
             TargetElapsedTime = new TimeSpan(0, 0, 0, 0, 99); // 33ms = 30fps
             Window.AllowUserResizing = false;
             Window.AllowAltF4 = true;
             Window.Title = "Team Feynman";
-            position1 = new Vector2(-1500, -1200);
+            position1 = new Vector2(0, 0);
             //position2 = new Vector2(3263, 2330);
         }
 
@@ -67,7 +67,7 @@ namespace SpriteAnimation
             spriteBatch = new SpriteBatch(GraphicsDevice);
             //use this.Content to load your game content here
             Texture2D heroTexture = Content.Load<Texture2D>("LEFT");
-            bgrImage = Content.Load<Texture2D>("BACKGROUND-DESERT");
+            bgrImage = Content.Load<Texture2D>("Desert");
             //Set the rectangle parameters.
             //mainFrame = new Rectangle(0, 0, 3200, 1600);
             Texture2D rightTexture = Content.Load<Texture2D>("RIGHT");
@@ -196,7 +196,6 @@ namespace SpriteAnimation
                 position2.Y -= BGRSPEED;
                 heroLocation.Y = 499;
             }
-
 
             base.Update(gameTime);
         }
