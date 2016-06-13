@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Content;
+using Microsoft.Xna.Framework.Input;
 
 namespace SpriteAnimation
 {
@@ -20,6 +21,11 @@ namespace SpriteAnimation
         //private AnimatedSprite animatedSpriteStandingRight;
         //private AnimatedSprite animatedSpriteStandingUp;
         //private AnimatedSprite animatedSpriteUp;
+        private string lastDirection = "down";
+        private Vector2 heroLocation = new Vector2(290, 0);
+        const int HEROSPEED = 15;
+        const int BGRSPEED = 35;
+
 
         public Player(Texture2D standingRight, Texture2D heroTexture, Texture2D rightTexture, Texture2D upTexture, Texture2D downTexture, Texture2D standingLeft, Texture2D standingDown, Texture2D standingUp)
         {
@@ -43,5 +49,87 @@ namespace SpriteAnimation
         public AnimatedSprite AnimatedSpriteStandingRight { get; set; }
         public AnimatedSprite AnimatedSpriteStandingUp { get; set; }
         public AnimatedSprite AnimatedSpriteUp { get; set; }
+
+        public Vector2 HeroLocation
+        {
+            get
+            {
+                return this.heroLocation;
+            }
+            set
+            {
+                if (value.X < 1024 && value.X > 0 && value.Y < 1024 && value.X > 0)
+                {
+                    this.heroLocation = value;
+                }
+            }
+
+        }
+
+        private void LocationControl(Vector2 location)
+        {
+            if ((location.X < 960 && location.Y < 900) && (location.X > 0 && location.Y > 0))
+            {
+                this.heroLocation = location;
+            }
+        }
+
+        public void KeyListener()
+        {
+            var keyPressed = Keyboard.GetState();
+
+            if (keyPressed.IsKeyDown(Keys.Right))
+            {
+                AnimatedSprite = AnimatedSpriteRight;
+                lastDirection = "right";
+                Vector2 newLocation = new Vector2 (heroLocation.X + HEROSPEED, heroLocation.Y);
+                LocationControl(newLocation);                
+            }
+
+            if (keyPressed.IsKeyDown(Keys.Left))
+            {
+                AnimatedSprite = AnimatedSpriteLeft;
+                lastDirection = "left";                
+                Vector2 newLocation = new Vector2(heroLocation.X - HEROSPEED, heroLocation.Y);
+                LocationControl(newLocation);
+            }
+
+            if (keyPressed.IsKeyDown(Keys.Up))
+            {
+                AnimatedSprite = AnimatedSpriteUp;
+                lastDirection = "up";                
+                Vector2 newLocation = new Vector2(heroLocation.X, heroLocation.Y - HEROSPEED);
+                LocationControl(newLocation);
+            }
+
+            if (keyPressed.IsKeyDown(Keys.Down))
+            {
+                AnimatedSprite = AnimatedSpriteDown;
+                lastDirection = "down";
+                Vector2 newLocation = new Vector2(heroLocation.X, heroLocation.Y + HEROSPEED);
+                LocationControl(newLocation);
+            }
+
+
+            if (lastDirection == "right" && Keyboard.GetState().IsKeyUp(Keys.Right))
+            {
+                AnimatedSprite = AnimatedSpriteStandingRight;
+            }
+            if (lastDirection == "left" && Keyboard.GetState().IsKeyUp(Keys.Left))
+            {
+                AnimatedSprite = AnimatedSpriteStandingLeft;
+            }
+            if (lastDirection == "down" && Keyboard.GetState().IsKeyUp(Keys.Down))
+            {
+                AnimatedSprite = AnimatedSpriteStandingDown;
+            }
+            if (lastDirection == "up" && Keyboard.GetState().IsKeyUp(Keys.Up))
+            {
+                AnimatedSprite = AnimatedSpriteStandingUp;
+            }
+
+            //Add your update logic here
+            AnimatedSprite.Update();
+        }
     }
 }
