@@ -19,9 +19,7 @@ namespace SpriteAnimation
             int width = bookImg.Width;
             int height = bookImg.Height;
             Vector2 location = new Vector2(90, 240);
-            spriteBatch.Begin();
             spriteBatch.Draw(bookImg, location, Color.White);
-            spriteBatch.End();
         }
     }
 }

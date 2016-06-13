@@ -10,29 +10,38 @@ namespace SpriteAnimation
     /// </summary>
     public class Game1 : Game
     {
-        readonly GraphicsDeviceManager graphics;
-        private Player hero;
-        private KnoledgeBook kBook;
+        private const int screenHeight = 1024, screenWidth = 1024;
 
         Texture2D bgrImage;
+        private MenuButton buttonPlay;
+        private MenuButton buttonQuit;
+        private MenuButton buttonResume;
+        GameState currentGameState = GameState.MainMenu;
+        public GraphicsDeviceManager Graphics;
+        private Player hero;
+        private KnoledgeBook kBook;
         //Create a Rectangle that will define the limits for the main game screen
         Rectangle mainFrame;
+        Texture2D menuBackground;
+        Texture2D playBtnTexture;
 
         public Vector2 position1;
+        Texture2D quitBtnTexture;
+        Texture2D resumeBtnTexture;
         SpriteBatch spriteBatch;
-        
 
 
         public Game1()
         {
-            graphics = new GraphicsDeviceManager(this);
-            graphics.PreferredBackBufferWidth = 1024;
-            graphics.PreferredBackBufferHeight = 1024;
-            graphics.ApplyChanges();
+            Graphics = new GraphicsDeviceManager(this);
+            Graphics.PreferredBackBufferWidth = screenWidth;
+            Graphics.PreferredBackBufferHeight = screenHeight;
+            Graphics.ApplyChanges();
             Content.RootDirectory = "Content";
             TargetElapsedTime = new TimeSpan(0, 0, 0, 0, 99); // 33ms = 30fps
             Window.AllowUserResizing = false;
             Window.AllowAltF4 = true;
+            Window.Position = Point.Zero;
             Window.Title = "Team Feynman";
             position1 = new Vector2(0, 0);
         }
@@ -63,7 +72,7 @@ namespace SpriteAnimation
             Texture2D heroTexture = Content.Load<Texture2D>("LEFT");
             bgrImage = Content.Load<Texture2D>("Desert");
             //Set the rectangle parameters.
-            //mainFrame = new Rectangle(0, 0, 3200, 1600);
+
             Texture2D rightTexture = Content.Load<Texture2D>("RIGHT");
             Texture2D upTexture = Content.Load<Texture2D>("UP");
             Texture2D downTexture = Content.Load<Texture2D>("DOWN");
@@ -71,8 +80,21 @@ namespace SpriteAnimation
             Texture2D standingLeft = Content.Load<Texture2D>("STANDINGLEFT");
             Texture2D standingDown = Content.Load<Texture2D>("STANDINGDOWN");
             Texture2D standingUp = Content.Load<Texture2D>("STANDINGUP");
+            menuBackground = Content.Load<Texture2D>("BACKGROUND");
 
-            hero = new Player(standingRight, heroTexture, rightTexture, upTexture, 
+            playBtnTexture = Content.Load<Texture2D>("playBtn");
+            quitBtnTexture = Content.Load<Texture2D>("quitBtn");
+            resumeBtnTexture = Content.Load<Texture2D>("resumeBtn");
+
+            buttonPlay = new MenuButton(playBtnTexture, Graphics.GraphicsDevice);
+            buttonQuit = new MenuButton(quitBtnTexture, Graphics.GraphicsDevice);
+            buttonResume = new MenuButton(resumeBtnTexture, Graphics.GraphicsDevice);
+
+            buttonPlay.setPosition(new Vector2(512 - playBtnTexture.Width/2, 512));
+            buttonQuit.setPosition(new Vector2(512 - quitBtnTexture.Width/2, 632));
+            buttonResume.setPosition(new Vector2(512 - resumeBtnTexture.Width/2, 512));
+
+            hero = new Player(standingRight, heroTexture, rightTexture, upTexture,
                 downTexture, standingLeft, standingDown, standingUp);
             kBook = new KnoledgeBook(Content.Load<Texture2D>("Book1"));
         }
@@ -93,11 +115,48 @@ namespace SpriteAnimation
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
-            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed ||
-                Keyboard.GetState().IsKeyDown(Keys.Escape))
-                Exit();
+            MouseState mouse = Mouse.GetState();
 
-            hero.KeyListener();
+            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed &&
+                currentGameState != GameState.MainMenu ||
+                Keyboard.GetState().IsKeyDown(Keys.Escape) && currentGameState != GameState.MainMenu)
+                currentGameState = GameState.Options;
+
+
+            switch (currentGameState)
+            {
+                case GameState.MainMenu:
+                    if (buttonPlay.isClicked)
+                    {
+                        currentGameState = GameState.Playing;
+                    }
+                    if (buttonQuit.isClicked)
+                    {
+                        Exit();
+                    }
+                    buttonPlay.Update(mouse);
+                    buttonQuit.Update(mouse);
+                    break;
+
+                case GameState.Playing:
+                    hero.KeyListener();
+                    break;
+
+                case GameState.Options:
+
+                    if (buttonResume.isClicked)
+                    {
+                        currentGameState = GameState.Playing;
+                    }
+                    if (buttonQuit.isClicked)
+                    {
+                        Exit();
+                    }
+                    buttonResume.Update(mouse);
+                    buttonQuit.Update(mouse);
+                    break;
+            }
+
 
             base.Update(gameTime);
         }
@@ -112,22 +171,39 @@ namespace SpriteAnimation
 
 
             spriteBatch.Begin();
-            // spriteBatch.Draw(bgrImgage, Vector2.Zero);
-
             //Draw limits of the screen
-            spriteBatch.Draw(bgrImage, position1, Color.White);
-            //spriteBatch.Draw(bgrImage, mainFrame, Color.White);
 
-            // spriteBatch.Draw(bgrImgage, position2, Color.White);
+            switch (currentGameState)
+            {
+                case GameState.MainMenu:
+                    spriteBatch.Draw(menuBackground, new Rectangle(0, 0, screenWidth, screenHeight), Color.White);
+                    buttonPlay.Draw(spriteBatch);
+                    buttonQuit.Draw(spriteBatch);
+                    break;
+
+                case GameState.Playing:
+                    spriteBatch.Draw(bgrImage, position1, Color.White);
+                    kBook.Draw(spriteBatch);
+                    hero.AnimatedSprite.Draw(spriteBatch, hero.HeroLocation);
+                    break;
+
+                case GameState.Options:
+                    spriteBatch.Draw(menuBackground, new Rectangle(0, 0, screenWidth, screenHeight), Color.White);
+                    buttonResume.Draw(spriteBatch);
+                    buttonQuit.Draw(spriteBatch);
+                    break;
+            }
             spriteBatch.End();
 
-            // TODO: Add your drawing code here
-
-            kBook.Draw(spriteBatch);
-
-            hero.AnimatedSprite.Draw(spriteBatch, hero.HeroLocation);
 
             base.Draw(gameTime);
+        }
+
+        enum GameState
+        {
+            MainMenu,
+            Options,
+            Playing
         }
     }
 }

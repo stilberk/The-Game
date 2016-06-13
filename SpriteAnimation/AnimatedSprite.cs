@@ -5,8 +5,8 @@ namespace SpriteAnimation
 {
     public class AnimatedSprite
     {
-        private int currentFrame;
         private readonly int totalFrames;
+        private int currentFrame;
 
         public AnimatedSprite(Texture2D texture, int rows, int columns)
         {
@@ -41,9 +41,7 @@ namespace SpriteAnimation
             Rectangle sourceRectangle = new Rectangle(width*column, height*row, width, height);
             Rectangle destinationRectangle = new Rectangle((int) location.X, (int) location.Y, width, height);
 
-            spriteBatch.Begin();
             spriteBatch.Draw(Texture, destinationRectangle, sourceRectangle, Color.White);
-            spriteBatch.End();
         }
     }
 }
