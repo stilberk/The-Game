@@ -199,9 +199,9 @@ namespace SpriteAnimation
                     hero.AnimatedSprite.Draw(spriteBatch, hero.HeroLocation);
                     //Here we draw black boxes ontop of our objects to let us see how exactly we colide
                     //Coment the methods below to take off the black boxes
-                    //DrawRectangle(this.hero.HeroBoundaries, Color.Black);
-                    //DrawRectangle(this.kBook.BookBoundaries, Color.Black);
-                    //DrawRectangle(new Rectangle(0, 0, 290, 143), Color.Black);
+          //      DrawRectangle(this.hero.HeroBoundaries, Color.Black);
+            //        DrawRectangle(this.kBook.BookBoundaries, Color.Black);
+                 //    DrawRectangle(new Rectangle(200, 200, 10, 10), Color.Black);
                     //DrawRectangle(new Rectangle(330, 305, 100, 75), Color.Black);
                     //DrawRectangle(new Rectangle(555, 595, 100, 75), Color.Black);
                     //DrawRectangle(new Rectangle(355, 0, 620, 145), Color.Black);
