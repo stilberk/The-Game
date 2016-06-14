@@ -1,4 +1,4 @@
-##   Creating a 2D animated Role-Play Game (RPG) named ìThe adventures of Professor Feynmanî ñ teamwork during the course C# advanced at SoftUni, may 2016 
+##   Creating a 2D animated Role-Play Game (RPG) named ‚ÄúThe adventures of Professor Feynman‚Äù ‚Äì teamwork during the course C# advanced at SoftUni, may 2016 
 
 The goal of this project is to develop an interactive 2D animated Role-Play Game (RPG).  The game is based on several interesting stories, which are inspired from the real life achievements of [Professor Richard Feynman](https://en.wikipedia.org/wiki/Richard_Feynman). 
 
@@ -6,9 +6,9 @@ The main advantage of this approach is that the game is open and allows realizat
 
 ## Possible game scenarios 
 
-### Professor Feynmanís background 
+### Professor Feynman‚Äôs background 
 
-Professor Richard Feynman (1918 ñ 1988) was an American theoretical physicist, who received the Nobel Prize in Physics in 1965 for his contributions to the development of quantum electrodynamics . He developed a pictorial representation scheme for the mathematical expressions governing the behavior of subatomic particles, which later became known as Feynman diagrams. 
+Professor Richard Feynman (1918 ‚Äì 1988) was an American theoretical physicist, who received the Nobel Prize in Physics in 1965 for his contributions to the development of quantum electrodynamics . He developed a pictorial representation scheme for the mathematical expressions governing the behavior of subatomic particles, which later became known as Feynman diagrams. 
 Before these famous scientific achievements, during World War II, he assisted in the development of the atomic bomb . 
 In the 1980s he was a member of the Rogers Commission, the panel that investigated the Space Shuttle Challenger disaster.
 
@@ -26,7 +26,7 @@ Part 3: Professor Feynman and the space shuttle Challenger.
 1. The goal of this level is to increase the IQ value of the hero up to some boundary, needed for creating of the Feynman diagrams. 
 2. During his movements on the screen Professor Feynman collects some pieces, which help him to create his famous Feynman diagrams. These pieces are related to the subatomic particles and could be drawn as [some symbols] (http://www.conceptdraw.com/How-To-Guide/picture/physics-symbols/Science-Education-Physics-Design-Elements-Nuclear-Physics.png)
 3. Once he manages to collect something, his IQ value arises. 
-4. In the same time some obstacles appear ñ some books or equations or diagram falls from the top part of the screen. 
+4. In the same time some obstacles appear ‚Äì some books or equations or diagram falls from the top part of the screen. 
 5. Ones the Professor meets these obstacles, his IQ decreases with certain value. 
 6. At the end of this level, when the boundary IQ value is reached, the Professor Feynman gets a coin with Nobel face drawn on it. 
 7. During all the time a suitable music for all events is playing. 
@@ -35,6 +35,8 @@ Part 3: Professor Feynman and the space shuttle Challenger.
 ##  What is already realized
 
 1. Title screen with 2 buttons (Play and Quit) on the background and 2 objects (bomb and test tube)
+
+![Here you see how it looks](https://github.com/Team-Feynman/The-Game/blob/master/Screens/InitialScreen.jpg) 
 
 2. The second screen, where the Professor is walking on the map. 
 
