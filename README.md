@@ -1,4 +1,4 @@
-#   Creating a 2D animated Role-Play Game (RPG) named “The adventures of Professor Feynman” – teamwork during the course C# advanced at SoftUni, may 2016 
+##   Creating a 2D animated Role-Play Game (RPG) named “The adventures of Professor Feynman” – teamwork during the course C# advanced at SoftUni, may 2016 
 
 The goal of this project is to develop an interactive 2D animated Role-Play Game (RPG).  The game is based on several interesting stories, which are inspired from the real life achievements of [Professor Richard Feynman](https://en.wikipedia.org/wiki/Richard_Feynman). 
 
