@@ -47,7 +47,6 @@ Part 3: Professor Feynman and the space shuttle Challenger.
 4. This game level is accompanied using suitable music. 
 
 
-
 ### Used platform
 
 We have used the MonoGame 3.5 for Visual studio.  It is an open source implementation of the Microsoft XNA 4 Framework, which is quite easy and intuitive to learn, and has a cross-platform realization. 
