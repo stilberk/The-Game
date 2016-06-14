@@ -44,6 +44,8 @@ Part 3: Professor Feynman and the space shuttle Challenger.
 
 3. All possible collisions during the movement of the hero on the map are programmed in the code. 
 
+![Here you see how it looks](https://github.com/Team-Feynman/The-Game/blob/master/Screens/ThirdScreen.png)
+
 4. This game level is accompanied using suitable music. 
 
 
