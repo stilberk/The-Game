@@ -22,12 +22,20 @@ namespace SpriteAnimation
         //private AnimatedSprite animatedSpriteStandingUp;
         //private AnimatedSprite animatedSpriteUp;
         private string lastDirection = "down";
-        private Vector2 heroLocation = new Vector2(290, 0);
+        private Vector2 heroLocation;
+
+        private List<Rectangle> objOnMap; 
+        private Vector2 currentLocation;
+        private bool heroColide = false;
         const int HEROSPEED = 15;
         const int BGRSPEED = 35;
 
+        private Rectangle heroBoundaries;
 
-        public Player(Texture2D standingRight, Texture2D heroTexture, Texture2D rightTexture, Texture2D upTexture, Texture2D downTexture, Texture2D standingLeft, Texture2D standingDown, Texture2D standingUp)
+
+        public Player(Texture2D standingRight, Texture2D heroTexture, Texture2D rightTexture, Texture2D upTexture,
+                        Texture2D downTexture, Texture2D standingLeft, Texture2D standingDown, Texture2D standingUp,
+                        List<Rectangle> mapObjects)
         {
             AnimatedSprite = new AnimatedSprite(standingRight, 1, 9);
             AnimatedSpriteLeft = new AnimatedSprite(heroTexture, 1, 9);
@@ -38,6 +46,9 @@ namespace SpriteAnimation
             AnimatedSpriteStandingRight = new AnimatedSprite(standingRight, 1, 1);
             AnimatedSpriteStandingDown = new AnimatedSprite(standingDown, 1, 1);
             AnimatedSpriteStandingUp = new AnimatedSprite(standingUp, 1, 1);
+            this.heroBoundaries = new Rectangle((int)this.heroLocation.X, (int)this.heroLocation.Y, 64, 64);
+            heroLocation = new Vector2(290, 0);
+            this.objOnMap = mapObjects;
         }
 
         public AnimatedSprite AnimatedSprite { get; set; }
@@ -50,6 +61,19 @@ namespace SpriteAnimation
         public AnimatedSprite AnimatedSpriteStandingUp { get; set; }
         public AnimatedSprite AnimatedSpriteUp { get; set; }
 
+        public Rectangle HeroBoundaries
+        {
+            get
+            {
+                return this.heroBoundaries;
+            }
+
+            set
+            {
+                this.heroBoundaries = value;
+            }
+        }
+
         public Vector2 HeroLocation
         {
             get
@@ -61,6 +85,8 @@ namespace SpriteAnimation
                 if (value.X < 1024 && value.X > 0 && value.Y < 1024 && value.X > 0)
                 {
                     this.heroLocation = value;
+                    this.heroBoundaries.X = (int)value.X;
+                    this.heroBoundaries.Y = (int)value.Y;
                 }
             }
 
@@ -68,9 +94,15 @@ namespace SpriteAnimation
 
         private void LocationControl(Vector2 location)
         {
-            if ((location.X < 960 && location.Y < 900) && (location.X > 0 && location.Y > 0))
+            this.heroBoundaries.X = (int)location.X;
+            this.heroBoundaries.Y = (int)location.Y;
+            this.heroColide = CollisionControler(this.objOnMap, this.heroBoundaries);
+
+            if ((location.X < 960 && location.Y < 900) && (location.X > 0 && location.Y > 0) && !this.heroColide)
             {
                 this.heroLocation = location;
+                this.heroBoundaries.X = (int)location.X;
+                this.heroBoundaries.Y = (int)location.Y;
             }
         }
 
@@ -131,5 +163,20 @@ namespace SpriteAnimation
             //Add your update logic here
             AnimatedSprite.Update();
         }
+
+        private bool CollisionControler(List<Rectangle> mapObjects, Rectangle heroBounds)
+        {
+            bool haveCollision = false;
+            foreach (var obj in mapObjects)
+            {
+                if (obj.Intersects(heroBounds))
+                {
+                    haveCollision = true;
+                    break;
+                }
+            }
+            return haveCollision;
+        }
+
     }
 }
