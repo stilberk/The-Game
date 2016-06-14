@@ -23,6 +23,8 @@ namespace SpriteAnimation
         private Player hero;
         private KnoledgeBook kBook;
 
+        private MapBoundaries map;
+
         private List<Rectangle> mapObjects;
         //Create a Rectangle that will define the limits for the main game screen
         Rectangle mainFrame;
@@ -34,7 +36,7 @@ namespace SpriteAnimation
         Texture2D resumeBtnTexture;
         SpriteBatch spriteBatch;
 
-        
+
         public Game1()
         {
             Graphics = new GraphicsDeviceManager(this);
@@ -47,7 +49,7 @@ namespace SpriteAnimation
             Window.AllowAltF4 = true;
             Window.Position = Point.Zero;
             Window.Title = "Team Feynman";
-            position1 = new Vector2(0, 0);            
+            position1 = new Vector2(0, 0);
         }
 
         /// <summary>
@@ -94,14 +96,17 @@ namespace SpriteAnimation
             buttonQuit = new MenuButton(quitBtnTexture, Graphics.GraphicsDevice);
             buttonResume = new MenuButton(resumeBtnTexture, Graphics.GraphicsDevice);
 
-            buttonPlay.setPosition(new Vector2(512 - playBtnTexture.Width/2, 512));
-            buttonQuit.setPosition(new Vector2(512 - quitBtnTexture.Width/2, 632));
-            buttonResume.setPosition(new Vector2(512 - resumeBtnTexture.Width/2, 512));
+            buttonPlay.setPosition(new Vector2(512 - playBtnTexture.Width / 2, 512));
+            buttonQuit.setPosition(new Vector2(512 - quitBtnTexture.Width / 2, 632));
+            buttonResume.setPosition(new Vector2(512 - resumeBtnTexture.Width / 2, 512));
             kBook = new KnoledgeBook(Content.Load<Texture2D>("Book1"));
+            this.map = new MapBoundaries();
             this.mapObjects = new List<Rectangle>()
                                   {
-                                      this.kBook.BookBoundaries
+                                      this.kBook.BookBoundaries,
                                   };
+            mapObjects.AddRange(this.map.MapObjects);
+
             hero = new Player(standingRight, heroTexture, rightTexture, upTexture,
                 downTexture, standingLeft, standingDown, standingUp, this.mapObjects);
 
@@ -194,8 +199,9 @@ namespace SpriteAnimation
                     hero.AnimatedSprite.Draw(spriteBatch, hero.HeroLocation);
                     //Here we draw black boxes ontop of our objects to let us see how exactly we colide
                     //Coment the methods below to take off the black boxes
-                    DrawRectangle(this.hero.HeroBoundaries,Color.Black);
-                    DrawRectangle(this.kBook.BookBoundaries,Color.Black);
+                    DrawRectangle(this.hero.HeroBoundaries, Color.Black);
+                    DrawRectangle(this.kBook.BookBoundaries, Color.Black);
+                    DrawRectangle(new Rectangle(0, 0, 114, 143), Color.Black);
                     //------------------------------------------------------------
                     break;
 
