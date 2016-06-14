@@ -34,19 +34,19 @@ Part 3: Professor Feynman and the space shuttle Challenger.
 
 ##  What is already realized
 
-1. Title screen with 2 buttons (Play and Quit) on the background and 2 objects (bomb and test tube)
+-  Title screen with 2 buttons (Play and Quit) on the background and 2 objects (bomb and test tube)
 
 ![Here you see how it looks](https://github.com/Team-Feynman/The-Game/blob/master/Screens/InitialScreen.jpg) 
 
-2. The second screen, where the Professor is walking on the map. 
+-  The second screen, where the Professor is walking on the map. 
 
 ![Here you see how it looks] (https://github.com/Team-Feynman/The-Game/blob/master/Screens/SecondScreen.jpg)
 
-3. All possible collisions during the movement of the hero on the map are programmed in the code. 
+ -  All possible collisions during the movement of the hero on the map are programmed in the code. 
 
 ![Here you see how it looks](https://github.com/Team-Feynman/The-Game/blob/master/Screens/ThirdScreen.png)
 
-4. This game level is accompanied using suitable music. 
+ -  This game level is accompanied using suitable music. 
 
 
 ### Used platform
