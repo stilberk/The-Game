@@ -40,6 +40,8 @@ Part 3: Professor Feynman and the space shuttle Challenger.
 
 2. The second screen, where the Professor is walking on the map. 
 
+![Here you see how it looks] (https://github.com/Team-Feynman/The-Game/blob/master/Screens/SecondScreen.jpg)
+
 3. All possible collisions during the movement of the hero on the map are programmed in the code. 
 
 4. This game level is accompanied using suitable music. 
