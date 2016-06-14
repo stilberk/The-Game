@@ -18,7 +18,8 @@
 * [OneDrive temporary file storage] (https://onedrive.live.com/?id=8179642F11171979%21105&cid=8179642F11171979)
 Here we have stored sprite sheets and other images, which we have used or plan to use in the game code. All necessary images are taken from the internet. 
 
-**IV. Team collaboration tools: **
+**IV. Team collaboration tools:**
+
 * [GitHub repository]( https://github.com/Team-Feynman/The-Game )
 * [Trello] (https://trello.com/b/3sCSKPDq/rpg-game-ideas)
 * Skype – Team Feynman group, where we have continuously discussed all ideas and problems. 
@@ -28,9 +29,13 @@ Here we have stored sprite sheets and other images, which we have used or plan t
 
 
 **VI. What is realized till now:**
+
 1. Title screen with 2 buttons (Play and Quite) on the background and 2 objects (bomb and test tube)
+
 2. The second screen, where the Professor is walking on the map. 
+
 3. All possible collisions during the movement of the hero on the map are programmed in the code. 
+
 4. This game level is accompanied using suitable music. 
 
 
@@ -43,10 +48,15 @@ Feynman.cs calls the file Game1.cs
 **Game1.cs** was created following the instructions for using MonoGame. As a starting point we have used the [tutorial] (http://www.gamefromscratch.com/post/2015/06/10/Getting-Started-with-MonoGame-on-Windows.aspx), and extended the code according our needs. 
 The class Game1 is the main type for our game, which inherits the base class Game. In our implementation of this file we have created a rectangle that defines the limits for the main game screen. Here we also have defined a behavior of the concrete objects of the our own classes MenuButton, Player, KnoledgeBook, as well as object from the classes GraphicsDeviceManager, SpriteBatch,  Content, Texture2D. 
 In this class the following methods are used:
+
 **- Initialize()** - Allows the game to perform any initialization it needs to before starting to run. This is where it can query for any required services and load any non-graphic related content.  Calling base.Initialize will enumerate through any components and initialize them as well.
+
 **- LoadContent()** is called once per game and is the place to load all of the game content. Here we create a new SpriteBatch, which can be used to draw textures. Here we set the rectangle parameters using 2D textures. These textures are saved in the library SpriteAnimation/content/content.mgcb as *.png - files.
+
 **- UnloadContent()** – it is called once per game and is the place to unload game-specific content.
+
 **- Update(GameTime gameTime)** - Allows the game to run logic such as updating the world, checking for collisions, gathering input, and playing audio. The parameter gameTime provides a snapshot of timing values. Here the behavior of both buttons is defined. 
+
 **- Draw(GameTime gameTime)** – this method is called when the game should draw itself. Here the animation of the concrete instance of the class Player is defined. 
 This class call the classes MenuButton, Player, KnoledgeBook.
 
