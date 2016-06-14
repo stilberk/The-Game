@@ -21,10 +21,10 @@ Part 2: Professor Feynman and the atomic bomb.
 Part 3: Professor Feynman and the space shuttle Challenger.
 
 
-### Detailed description of the level (part)1: Professor Feynman and the subatomic particles.
+### Detailed description of the level (part) 1: Professor Feynman and the subatomic particles.
 
 1. The goal of this level is to increase the IQ value of the hero up to some boundary, needed for creating of the Feynman diagrams. 
-2. During his movements on the screen Professor Feynman collects some pieces, which help him to create his famous Feynman diagrams. These pieces are related to the subatomic particles and could be drawn as [some symbols] (http://www.conceptdraw.com/How-To-Guide/picture/physics-symbols/Science-Education-Physics-Design-Elements-Nuclear-Physics.png)
+2. During his movements on the screen the Professor collects some pieces, which help him to create his famous Feynman diagrams. These pieces are related to the subatomic particles and could be drawn as [some symbols] (http://www.conceptdraw.com/How-To-Guide/picture/physics-symbols/Science-Education-Physics-Design-Elements-Nuclear-Physics.png)
 3. Once he manages to collect something, his IQ value arises. 
 4. In the same time some obstacles appear – some books or equations or diagram falls from the top part of the screen. 
 5. Ones the Professor meets these obstacles, his IQ decreases with certain value. 
