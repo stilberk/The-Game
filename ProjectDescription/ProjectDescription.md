@@ -5,7 +5,7 @@
 
 ###Designers of the game: Team Feynman
 
-**Team Members:** Alexander Yanev, Aneliya Ruseva, Borislav Gjoshev, Kalina Mitova, Mariya Ruskova, Neli N., Plamen  , Stiliyan K.   
+**Team Members:** Alexander, Aneliya, Borislav, Kalina, Mariya, Neli, Plamen, Stiliyan   
 
 ###Type of the game: 2D animated Role-Play Game (RPG), designed by the team Feynman. 
 
