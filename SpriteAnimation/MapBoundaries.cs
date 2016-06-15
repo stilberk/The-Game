@@ -64,8 +64,8 @@ namespace SpriteAnimation
             this.treesP1_3 = new Rectangle(260, 0, 17, 130);
             this.mapObj.Add(this.treesP1_3);
 
-            this.treesP2_1 = new Rectangle(345, 0, 40, 130);
-            this.mapObj.Add(this.treesP2_1);
+            //this.treesP2_1 = new Rectangle(345, 0, 40, 130);
+            //this.mapObj.Add(this.treesP2_1);
             this.treesP2_2 = new Rectangle(375, 132, 130, 32);
             this.mapObj.Add(this.treesP2_2);
             this.treesP2_3 = new Rectangle(509, 81, 250, 54);

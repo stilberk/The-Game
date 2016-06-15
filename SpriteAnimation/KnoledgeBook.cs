@@ -15,7 +15,7 @@ namespace SpriteAnimation
         public KnoledgeBook(Texture2D img)
         {
             this.bookImg = img;
-            location = new Vector2(90, 240);
+            location = new Vector2(350, 500);
             this.bookBoundaries = new Rectangle(120,270,64,64);
             //this.BookBoundaries.Offset(this.location);
         }
