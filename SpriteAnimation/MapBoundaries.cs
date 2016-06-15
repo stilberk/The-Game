@@ -47,6 +47,11 @@ namespace SpriteAnimation
         private Rectangle cactusP12;
         private Rectangle cactusP13;
         private Rectangle cactusP14;
+        private Rectangle cactusP15;
+        private Rectangle cactusP16_1;
+        private Rectangle cactusP16_2;
+        private Rectangle cactusP17_1;
+        private Rectangle cactusP17_2;
 
         public MapBoundaries()
         {
@@ -136,6 +141,17 @@ namespace SpriteAnimation
             this.mapObj.Add(this.cactusP13);
             this.cactusP14 = new Rectangle(149, 850, 5, 35);
             this.mapObj.Add(this.cactusP14);
+            this.cactusP15 = new Rectangle(180, 836, 5, 35);
+            this.mapObj.Add(this.cactusP15);
+
+            this.cactusP16_1 = new Rectangle(452, 900, 37, 134);
+            this.mapObj.Add(this.cactusP16_1);
+            this.cactusP16_2 = new Rectangle(484, 866, 5, 35);
+            this.mapObj.Add(this.cactusP16_2);
+
+            this.cactusP16_1 = new Rectangle(580, 902, 37, 152);
+            this.mapObj.Add(this.cactusP16_1);
+             
         }
 
 
