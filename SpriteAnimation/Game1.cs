@@ -275,6 +275,7 @@ namespace SpriteAnimation
                     spriteBatch.DrawString(messageFont, messageString, messagePos, Color.DarkRed);
                     //Here we draw black boxes ontop of our objects to let us see how exactly we colide
                     //Coment the methods below to take off the black boxes
+                   //DrawRectangle(this.hero.HeroBoundaries, Color.Black);
                     //DrawRectangle(this.kBook.BookBoundaries, Color.Black);
                     //DrawRectangle(new Rectangle(0, 0, 290, 143), Color.Black);
                     //DrawRectangle(new Rectangle(330, 305, 100, 75), Color.Black);
