@@ -9,14 +9,14 @@ namespace SpriteAnimation
     {
         private Texture2D bookImg;
 
-        private Vector2 location;
+        public Vector2 location;
         private Rectangle bookBoundaries;
 
         public KnoledgeBook(Texture2D img)
         {
             this.bookImg = img;
             location = new Vector2(90, 240);
-            this.bookBoundaries = new Rectangle(90,240,64,64);
+            this.bookBoundaries = new Rectangle(120,270,64,64);
             //this.BookBoundaries.Offset(this.location);
         }
 
@@ -33,6 +33,23 @@ namespace SpriteAnimation
             {
                 return this.bookBoundaries;
             }
+        }
+
+        public Vector2 GetCenterBook()
+        {
+            float x = location.X + bookBoundaries.Width / 2;
+            float y = location.Y + bookBoundaries.Height / 2;
+            return new Vector2(x, y);
+        }
+
+        static Random ran = new Random();
+
+        public Vector2 RandamPlace()
+        {
+            
+            float x = ran.Next(20, 800);
+            float y = ran.Next(20, 800);
+            return new Vector2(x, y);
         }
     }
 }

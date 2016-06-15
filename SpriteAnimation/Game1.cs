@@ -5,6 +5,8 @@ using Microsoft.Xna.Framework.Input;
 
 namespace SpriteAnimation
 {
+    using Microsoft.Xna.Framework.Audio;
+    using Microsoft.Xna.Framework.Media;
     using System.Collections.Generic;
 
     /// <summary>
@@ -25,6 +27,18 @@ namespace SpriteAnimation
 
         private MapBoundaries map;
 
+        // sounds
+        private Song backgroundMusic;
+        private Song startMelody;
+        private SoundEffect burpSound;
+
+        // string Time/Score
+        private SpriteFont messageFont;
+        private int timer;
+        private int score;
+        private string messageString;
+        private Vector2 messagePos;
+
         private List<Rectangle> mapObjects;
         //Create a Rectangle that will define the limits for the main game screen
         Rectangle mainFrame;
@@ -35,7 +49,6 @@ namespace SpriteAnimation
         Texture2D quitBtnTexture;
         Texture2D resumeBtnTexture;
         SpriteBatch spriteBatch;
-
 
         public Game1()
         {
@@ -101,15 +114,25 @@ namespace SpriteAnimation
             buttonResume.setPosition(new Vector2(512 - resumeBtnTexture.Width / 2, 512));
             kBook = new KnoledgeBook(Content.Load<Texture2D>("Book1"));
             this.map = new MapBoundaries();
-            this.mapObjects = new List<Rectangle>()
-                                  {
-                                      this.kBook.BookBoundaries,
-                                  };
+            this.mapObjects = new List<Rectangle>();
+            //                      {
+            //                          this.kBook.BookBoundaries,
+            //                      };
             mapObjects.AddRange(this.map.MapObjects);
 
             hero = new Player(standingRight, heroTexture, rightTexture, upTexture,
                 downTexture, standingLeft, standingDown, standingUp, this.mapObjects);
 
+            // load music
+            startMelody = Content.Load<Song>("Sounds\\BoxCat_Games_-_24_-_Tricks");
+            MediaPlayer.Play(startMelody);
+            MediaPlayer.IsRepeating = true;
+            backgroundMusic = Content.Load<Song>("Sounds\\Inspiration");
+            burpSound = Content.Load<SoundEffect>("Sounds\\BurbSound");
+
+            //load score/time string
+            messageFont = Content.Load<SpriteFont>("messageScoreTime");
+            messagePos = new Vector2(600, 30);
         }
 
         /// <summary>
@@ -119,6 +142,18 @@ namespace SpriteAnimation
         protected override void UnloadContent()
         {
             // TODO: Unload any non ContentManager content here
+        }
+
+        
+
+        public int GetDistanceFrom(KnoledgeBook book, Player hero)
+        {
+            Vector2 centerBook = book.GetCenterBook();
+            Vector2 centerPlayer = hero.GetCenterPlayer();
+            float dx = centerBook.X - centerPlayer.X;
+            float dy = centerBook.Y - centerPlayer.Y;
+
+            return (int) Math.Sqrt((dx * dx) + (dy * dy));
         }
 
         /// <summary>
@@ -142,6 +177,12 @@ namespace SpriteAnimation
                     if (buttonPlay.isClicked)
                     {
                         currentGameState = GameState.Playing;
+                        MediaPlayer.Stop();
+                        MediaPlayer.Play(backgroundMusic);
+                        MediaPlayer.IsRepeating = true;
+                        timer = 600;
+                        score = 0;
+                        messageString = $"Time: {timer} Score: {score}";
                     }
                     if (buttonQuit.isClicked)
                     {
@@ -152,6 +193,7 @@ namespace SpriteAnimation
                     break;
 
                 case GameState.Playing:
+                    
                     hero.KeyListener();
                     break;
 
@@ -170,10 +212,43 @@ namespace SpriteAnimation
                     break;
             }
 
+                kBook.location = GetNewBookPositon();
+                timer --;
+                int secsLeft = timer / 30;
+                messageString = $"Time: {secsLeft} Score: {score}";
+
+            if (timer == 0)
+            {
+                currentGameState = GameState.Options;
+
+                timer = 600;
+                score = 0;
+            }
 
             base.Update(gameTime);
         }
 
+        private Vector2 GetNewBookPositon ()
+        {
+            if (GetDistanceFrom(kBook, hero) < 50)
+            {
+                burpSound.Play(1.0f, 0.0f, 0.0f);
+                score += 100;
+                kBook.location = kBook.RandamPlace();
+                int num = 0;
+                while (num < mapObjects.Count)
+                {
+                    if (mapObjects[num].Contains(kBook.location))
+                    {
+                        kBook.location = kBook.RandamPlace();
+                        num = 0;
+                        continue;
+                    }
+                    num++;
+                }
+            }
+            return kBook.location;
+        }
         /// <summary>
         ///     This is called when the game should draw itself.
         /// </summary>
@@ -197,11 +272,12 @@ namespace SpriteAnimation
                     spriteBatch.Draw(bgrImage, position1, Color.White);
                     kBook.Draw(spriteBatch);
                     hero.AnimatedSprite.Draw(spriteBatch, hero.HeroLocation);
+                    spriteBatch.DrawString(messageFont, messageString, messagePos, Color.DarkRed);
                     //Here we draw black boxes ontop of our objects to let us see how exactly we colide
                     //Coment the methods below to take off the black boxes
-          //      DrawRectangle(this.hero.HeroBoundaries, Color.Black);
-            //        DrawRectangle(this.kBook.BookBoundaries, Color.Black);
-                 //    DrawRectangle(new Rectangle(200, 200, 10, 10), Color.Black);
+                    //DrawRectangle(this.hero.HeroBoundaries, Color.Black);
+                    //DrawRectangle(this.kBook.BookBoundaries, Color.Black);
+                    //DrawRectangle(new Rectangle(0, 0, 290, 143), Color.Black);
                     //DrawRectangle(new Rectangle(330, 305, 100, 75), Color.Black);
                     //DrawRectangle(new Rectangle(555, 595, 100, 75), Color.Black);
                     //DrawRectangle(new Rectangle(355, 0, 620, 145), Color.Black);
@@ -214,8 +290,9 @@ namespace SpriteAnimation
                     buttonQuit.Draw(spriteBatch);
                     break;
             }
-            spriteBatch.End();
 
+            // draw string Time/Score
+            spriteBatch.End();
 
             base.Draw(gameTime);
         }
@@ -231,5 +308,6 @@ namespace SpriteAnimation
             Options,
             Playing
         }
+
     }
 }

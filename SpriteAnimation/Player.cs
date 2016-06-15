@@ -46,9 +46,8 @@ namespace SpriteAnimation
             AnimatedSpriteStandingRight = new AnimatedSprite(standingRight, 1, 1);
             AnimatedSpriteStandingDown = new AnimatedSprite(standingDown, 1, 1);
             AnimatedSpriteStandingUp = new AnimatedSprite(standingUp, 1, 1);
-            heroLocation = new Vector2(304, 0);
-            this.heroBoundaries = new Rectangle((int)this.heroLocation.X , (int)this.heroLocation.Y , 35, 49);
-
+            this.heroBoundaries = new Rectangle((int)this.heroLocation.X, (int)this.heroLocation.Y, 64, 64);
+            heroLocation = new Vector2(290, 0);
             this.objOnMap = mapObjects;
         }
 
@@ -86,8 +85,8 @@ namespace SpriteAnimation
                 if (value.X < 1024 && value.X > 0 && value.Y < 1024 && value.X > 0)
                 {
                     this.heroLocation = value;
-                    this.heroBoundaries.X = (int)value.X ;
-                    this.heroBoundaries.Y = (int)value.Y  ;
+                    this.heroBoundaries.X = (int)value.X;
+                    this.heroBoundaries.Y = (int)value.Y;
                 }
             }
 
@@ -95,15 +94,15 @@ namespace SpriteAnimation
 
         private void LocationControl(Vector2 location)
         {
-            this.heroBoundaries.X = (int)location.X  ;
-            this.heroBoundaries.Y = (int)location.Y ;
+            this.heroBoundaries.X = (int)location.X;
+            this.heroBoundaries.Y = (int)location.Y;
             this.heroColide = CollisionControler(this.objOnMap, this.heroBoundaries);
 
             if ((location.X < 960 && location.Y < 900) && (location.X > 0 && location.Y > 0) && !this.heroColide)
             {
                 this.heroLocation = location;
-                this.heroBoundaries.X = (int)location.X  ;
-                this.heroBoundaries.Y = (int)location.Y  ;
+                this.heroBoundaries.X = (int)location.X;
+                this.heroBoundaries.Y = (int)location.Y;
             }
         }
 
@@ -179,5 +178,11 @@ namespace SpriteAnimation
             return haveCollision;
         }
 
+        public Vector2 GetCenterPlayer()
+        {
+            float x = heroLocation.X + heroBoundaries.Width / 2;
+            float y = heroLocation.Y + heroBoundaries.Height / 2;
+            return new Vector2(x, y);
+        }
     }
 }

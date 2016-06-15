@@ -193,3 +193,27 @@
 /processorParam:TextureFormat=Color
 /build:resumeBtn.png
 
+#begin Sounds/Inspiration.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:Sounds/Inspiration.mp3
+
+#begin Sounds/BoxCat_Games_-_24_-_Tricks.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:Sounds/BoxCat_Games_-_24_-_Tricks.mp3
+
+#begin Sounds/BurbSound.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sounds/BurbSound.wav
+
+#begin Sounds/messageScoreTime.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:TextureFormat=Compressed
+/build:Sounds/messageScoreTime.spritefont
+
