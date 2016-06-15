@@ -16,7 +16,7 @@ namespace SpriteAnimation
         {
             this.bookImg = img;
             location = new Vector2(350, 500);
-            this.bookBoundaries = new Rectangle(120,270,64,64);
+            this.bookBoundaries = new Rectangle(120,270,45,51);
             //this.BookBoundaries.Offset(this.location);
         }
 

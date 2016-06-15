@@ -144,7 +144,7 @@ namespace SpriteAnimation
             // TODO: Unload any non ContentManager content here
         }
 
-        
+
 
         public int GetDistanceFrom(KnoledgeBook book, Player hero)
         {
@@ -153,7 +153,7 @@ namespace SpriteAnimation
             float dx = centerBook.X - centerPlayer.X;
             float dy = centerBook.Y - centerPlayer.Y;
 
-            return (int) Math.Sqrt((dx * dx) + (dy * dy));
+            return (int)Math.Sqrt((dx * dx) + (dy * dy));
         }
 
         /// <summary>
@@ -193,7 +193,7 @@ namespace SpriteAnimation
                     break;
 
                 case GameState.Playing:
-                    
+
                     hero.KeyListener();
                     break;
 
@@ -212,10 +212,10 @@ namespace SpriteAnimation
                     break;
             }
 
-                kBook.location = GetNewBookPositon();
-                timer --;
-                int secsLeft = timer / 30;
-                messageString = $"Time: {secsLeft} Score: {score}";
+            kBook.location = GetNewBookPositon();
+          timer--;
+            int secsLeft = timer / 30;
+            messageString = $"Time: {secsLeft} Score: {score}";
 
             if (timer == 0)
             {
@@ -228,24 +228,35 @@ namespace SpriteAnimation
             base.Update(gameTime);
         }
 
-        private Vector2 GetNewBookPositon ()
+        private Vector2 GetNewBookPositon()
         {
             if (GetDistanceFrom(kBook, hero) < 50)
             {
                 burpSound.Play(1.0f, 0.0f, 0.0f);
                 score += 100;
                 kBook.location = kBook.RandamPlace();
+
                 int num = 0;
-                while (num < mapObjects.Count)
+                bool flColl = true;
+                while (flColl)
                 {
-                    if (mapObjects[num].Contains(kBook.location))
+                    flColl = false;
+                    while (num < mapObjects.Count)
+                    {
+                        if (mapObjects[num].Contains(kBook.location))
+                        {
+                            flColl = true;
+                            break;
+                        }
+                        num++;
+                    }
+                    if (flColl==true)
                     {
                         kBook.location = kBook.RandamPlace();
-                        num = 0;
-                        continue;
+
                     }
-                    num++;
                 }
+
             }
             return kBook.location;
         }
@@ -275,8 +286,8 @@ namespace SpriteAnimation
                     spriteBatch.DrawString(messageFont, messageString, messagePos, Color.DarkRed);
                     //Here we draw black boxes ontop of our objects to let us see how exactly we colide
                     //Coment the methods below to take off the black boxes
-                   //DrawRectangle(this.hero.HeroBoundaries, Color.Black);
-                    //DrawRectangle(this.kBook.BookBoundaries, Color.Black);
+                    //DrawRectangle(this.hero.HeroBoundaries, Color.Black);
+                   // DrawRectangle(this.kBook.BookBoundaries, Color.Black);
                     //DrawRectangle(new Rectangle(0, 0, 290, 143), Color.Black);
                     //DrawRectangle(new Rectangle(330, 305, 100, 75), Color.Black);
                     //DrawRectangle(new Rectangle(555, 595, 100, 75), Color.Black);
@@ -290,7 +301,6 @@ namespace SpriteAnimation
                     buttonQuit.Draw(spriteBatch);
                     break;
             }
-
             // draw string Time/Score
             spriteBatch.End();
 
