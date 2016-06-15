@@ -46,8 +46,8 @@ namespace SpriteAnimation
             AnimatedSpriteStandingRight = new AnimatedSprite(standingRight, 1, 1);
             AnimatedSpriteStandingDown = new AnimatedSprite(standingDown, 1, 1);
             AnimatedSpriteStandingUp = new AnimatedSprite(standingUp, 1, 1);
-            this.heroBoundaries = new Rectangle((int)this.heroLocation.X, (int)this.heroLocation.Y, 64, 64);
-            heroLocation = new Vector2(290, 0);
+            this.heroBoundaries = new Rectangle((int)this.heroLocation.X, (int)this.heroLocation.Y, 35, 49);
+            heroLocation = new Vector2(304, 0);
             this.objOnMap = mapObjects;
         }
 
