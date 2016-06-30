@@ -225,23 +225,17 @@ namespace SpriteAnimation
             }
 
             kBook.location = GetNewBookPositon();
-<<<<<<< HEAD
-
             imgStop.locationStop = GetStopPosition();
             timer--;
             int secsLeft = timer / 30;
             messageString = $"Time: {secsLeft} Score: {score}";
 
-            if (hero.HeroLocation.Y>=975)
-            { 
-=======
-            timer--;
-            int secsLeft = timer / 30;
-            messageString = $"Time: {secsLeft} Score: {score}";
-
-            if (timer == 0)
+            if (hero.HeroLocation.Y >= 975)
             {
->>>>>>> origin/master
+                // currentGameState = GameState.Options;
+                currentGameState = GameState.Level2;
+                MediaPlayer.Stop();
+                timer = 600;
                 // currentGameState = GameState.Options;
                 currentGameState = GameState.Level2;
                 MediaPlayer.Stop();
