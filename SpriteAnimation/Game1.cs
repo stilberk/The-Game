@@ -17,6 +17,7 @@ namespace SpriteAnimation
         private const int screenHeight = 1024, screenWidth = 1024;
 
         Texture2D bgrImage;
+        Texture2D brgLevel2;
         private MenuButton buttonPlay;
         private MenuButton buttonQuit;
         private MenuButton buttonResume;
@@ -90,6 +91,7 @@ namespace SpriteAnimation
             //use this.Content to load your game content here
             Texture2D heroTexture = Content.Load<Texture2D>("LEFT");
             bgrImage = Content.Load<Texture2D>("Desert");
+            brgLevel2 = Content.Load<Texture2D>("Level2");
             //Set the rectangle parameters.
 
             Texture2D rightTexture = Content.Load<Texture2D>("RIGHT");
@@ -144,7 +146,7 @@ namespace SpriteAnimation
             // TODO: Unload any non ContentManager content here
         }
 
-        
+
 
         public int GetDistanceFrom(KnoledgeBook book, Player hero)
         {
@@ -153,7 +155,7 @@ namespace SpriteAnimation
             float dx = centerBook.X - centerPlayer.X;
             float dy = centerBook.Y - centerPlayer.Y;
 
-            return (int) Math.Sqrt((dx * dx) + (dy * dy));
+            return (int)Math.Sqrt((dx * dx) + (dy * dy));
         }
 
         /// <summary>
@@ -178,7 +180,7 @@ namespace SpriteAnimation
                     {
                         currentGameState = GameState.Playing;
                         MediaPlayer.Stop();
-                        MediaPlayer.Play(backgroundMusic);
+                        //   MediaPlayer.Play(backgroundMusic);
                         MediaPlayer.IsRepeating = true;
                         timer = 600;
                         score = 0;
@@ -193,7 +195,12 @@ namespace SpriteAnimation
                     break;
 
                 case GameState.Playing:
-                    
+
+                    hero.KeyListener();
+                    break;
+
+                case GameState.Level2:
+                    MediaPlayer.Stop();
                     hero.KeyListener();
                     break;
 
@@ -212,15 +219,16 @@ namespace SpriteAnimation
                     break;
             }
 
-                kBook.location = GetNewBookPositon();
-                timer --;
-                int secsLeft = timer / 30;
-                messageString = $"Time: {secsLeft} Score: {score}";
+            kBook.location = GetNewBookPositon();
+            timer--;
+            int secsLeft = timer / 30;
+            messageString = $"Time: {secsLeft} Score: {score}";
 
             if (timer == 0)
             {
-                currentGameState = GameState.Options;
-
+                // currentGameState = GameState.Options;
+                currentGameState = GameState.Level2;
+                MediaPlayer.Stop();
                 timer = 600;
                 score = 0;
             }
@@ -228,7 +236,7 @@ namespace SpriteAnimation
             base.Update(gameTime);
         }
 
-        private Vector2 GetNewBookPositon ()
+        private Vector2 GetNewBookPositon()
         {
             if (GetDistanceFrom(kBook, hero) < 50)
             {
@@ -275,7 +283,7 @@ namespace SpriteAnimation
                     spriteBatch.DrawString(messageFont, messageString, messagePos, Color.DarkRed);
                     //Here we draw black boxes ontop of our objects to let us see how exactly we colide
                     //Coment the methods below to take off the black boxes
-                   //DrawRectangle(this.hero.HeroBoundaries, Color.Black);
+                    //DrawRectangle(this.hero.HeroBoundaries, Color.Black);
                     //DrawRectangle(this.kBook.BookBoundaries, Color.Black);
                     //DrawRectangle(new Rectangle(0, 0, 290, 143), Color.Black);
                     //DrawRectangle(new Rectangle(330, 305, 100, 75), Color.Black);
@@ -284,6 +292,12 @@ namespace SpriteAnimation
                     //------------------------------------------------------------
                     break;
 
+                case GameState.Level2:
+                    spriteBatch.Draw(brgLevel2, position1, Color.White);
+
+                    hero.HeroLocation = new Vector2(159, 0);
+                    hero.AnimatedSprite.Draw(spriteBatch, hero.HeroLocation);
+                    break;
                 case GameState.Options:
                     spriteBatch.Draw(menuBackground, new Rectangle(0, 0, screenWidth, screenHeight), Color.White);
                     buttonResume.Draw(spriteBatch);
@@ -306,7 +320,9 @@ namespace SpriteAnimation
         {
             MainMenu,
             Options,
-            Playing
+            Playing,
+            Level2
+
         }
 
     }
