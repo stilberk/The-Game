@@ -225,6 +225,7 @@ namespace SpriteAnimation
             }
 
             kBook.location = GetNewBookPositon();
+<<<<<<< HEAD
 
             imgStop.locationStop = GetStopPosition();
             timer--;
@@ -233,6 +234,14 @@ namespace SpriteAnimation
 
             if (hero.HeroLocation.Y>=975)
             { 
+=======
+            timer--;
+            int secsLeft = timer / 30;
+            messageString = $"Time: {secsLeft} Score: {score}";
+
+            if (timer == 0)
+            {
+>>>>>>> origin/master
                 // currentGameState = GameState.Options;
                 currentGameState = GameState.Level2;
                 MediaPlayer.Stop();

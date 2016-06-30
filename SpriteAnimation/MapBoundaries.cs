@@ -57,9 +57,15 @@ namespace SpriteAnimation
         {
             this.mapObj = new List<Rectangle>();
 
+<<<<<<< HEAD
 
 
             this.treesP1_1 = new Rectangle(0, 0, 294, 140);
+=======
+           
+
+            this.treesP1_1 = new Rectangle(0, 0, 116, 139);
+>>>>>>> origin/master
             this.mapObj.Add(this.treesP1_1);
             this.treesP1_2 = new Rectangle(116, 132, 133, 34);
             this.mapObj.Add(this.treesP1_2);
@@ -150,9 +156,12 @@ namespace SpriteAnimation
 
             this.cactusP17 = new Rectangle(580, 902, 37, 152);
             this.mapObj.Add(this.cactusP17);
+<<<<<<< HEAD
 
             this.stop1 = new Rectangle(513, 882, 62, 52);
             this.mapObj.Add(this.stop1);
+=======
+>>>>>>> origin/master
         }
 
 
