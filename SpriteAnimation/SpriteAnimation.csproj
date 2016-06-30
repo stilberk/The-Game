@@ -43,6 +43,7 @@
     <Compile Include="Feynman.cs" />
     <Compile Include="KnoledgeBook.cs" />
     <Compile Include="MapBoundaries.cs" />
+    <Compile Include="MapBoundariesLevel2.cs" />
     <Compile Include="MenuButton.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -42,6 +42,7 @@ namespace SpriteAnimation
         private Vector2 messagePos;
 
         private List<Rectangle> mapObjects;
+
         //Create a Rectangle that will define the limits for the main game screen
         Rectangle mainFrame;
         Texture2D menuBackground;
@@ -175,6 +176,7 @@ namespace SpriteAnimation
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed &&
                 currentGameState != GameState.MainMenu ||
                 Keyboard.GetState().IsKeyDown(Keys.Escape) && currentGameState != GameState.MainMenu)
+
                 currentGameState = GameState.Options;
 
 
@@ -226,7 +228,17 @@ namespace SpriteAnimation
 
             kBook.location = GetNewBookPositon();
             imgStop.locationStop = GetStopPosition();
-            timer--;
+            if (timer > 0 && score < 500)
+            {
+                timer--;
+            }
+            else if (timer == 0 && score < 500 && buttonPlay.isClicked)
+            {
+                //buttonPlay.isClicked = false;
+                //currentGameState = GameState.MainMenu;
+
+            }
+
             int secsLeft = timer / 30;
             messageString = $"Time: {secsLeft} Score: {score}";
 
@@ -250,7 +262,7 @@ namespace SpriteAnimation
         {
             if (GetDistanceFrom(kBook, hero) < 50)
             {
-                //     burpSound.Play(1.0f, 0.0f, 0.0f);
+                //burpSound.Play(1.0f, 0.0f, 0.0f);
                 score += 100;
                 kBook.location = kBook.RandamPlace();
                 int num = 0;
@@ -344,7 +356,13 @@ namespace SpriteAnimation
                     spriteBatch.Draw(brgLevel2, position1, Color.White);
 
                     hero.HeroLocation = new Vector2(159, 0);
+
+                    //Reset boundaries
+                    this.mapObjects = new List<Rectangle>();
+                    hero.ObjOnMap = mapObjects;
+
                     hero.AnimatedSprite.Draw(spriteBatch, hero.HeroLocation);
+
                     break;
                 case GameState.Options:
                     spriteBatch.Draw(menuBackground, new Rectangle(0, 0, screenWidth, screenHeight), Color.White);

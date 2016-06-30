@@ -32,7 +32,6 @@ namespace SpriteAnimation
 
         private Rectangle heroBoundaries;
 
-
         public Player(Texture2D standingRight, Texture2D heroTexture, Texture2D rightTexture, Texture2D upTexture,
                         Texture2D downTexture, Texture2D standingLeft, Texture2D standingDown, Texture2D standingUp,
                         List<Rectangle> mapObjects)
@@ -60,6 +59,18 @@ namespace SpriteAnimation
         public AnimatedSprite AnimatedSpriteStandingRight { get; set; }
         public AnimatedSprite AnimatedSpriteStandingUp { get; set; }
         public AnimatedSprite AnimatedSpriteUp { get; set; }
+
+        public List<Rectangle> ObjOnMap
+        {
+            get
+            {
+                return this.objOnMap;
+            }
+            set
+            {
+                this.objOnMap = value;
+            }
+        }
 
         public Rectangle HeroBoundaries
         {

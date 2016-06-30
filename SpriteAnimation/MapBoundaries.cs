@@ -11,7 +11,7 @@ namespace SpriteAnimation
     public class MapBoundaries
     {
         private List<Rectangle> mapObj;
-        private Rectangle stop1;
+        private Rectangle stop1;    //variable allowing access to level2
 
         private Rectangle treesP1_1;
         private Rectangle treesP1_2;
