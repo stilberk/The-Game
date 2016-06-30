@@ -14,9 +14,10 @@ namespace SpriteAnimation
     /// </summary>
     public class Game1 : Game
     {
-        private const int screenHeight = 1024, screenWidth = 1024;
+        public const int screenHeight = 1024, screenWidth = 1024;
 
         Texture2D bgrImage;
+        Texture2D brgLevel2;
         private MenuButton buttonPlay;
         private MenuButton buttonQuit;
         private MenuButton buttonResume;
@@ -24,6 +25,7 @@ namespace SpriteAnimation
         public GraphicsDeviceManager Graphics;
         private Player hero;
         private KnoledgeBook kBook;
+        private Stop imgStop;
 
         private MapBoundaries map;
 
@@ -90,6 +92,7 @@ namespace SpriteAnimation
             //use this.Content to load your game content here
             Texture2D heroTexture = Content.Load<Texture2D>("LEFT");
             bgrImage = Content.Load<Texture2D>("Desert");
+            brgLevel2 = Content.Load<Texture2D>("Level2");
             //Set the rectangle parameters.
 
             Texture2D rightTexture = Content.Load<Texture2D>("RIGHT");
@@ -113,6 +116,7 @@ namespace SpriteAnimation
             buttonQuit.setPosition(new Vector2(512 - quitBtnTexture.Width / 2, 632));
             buttonResume.setPosition(new Vector2(512 - resumeBtnTexture.Width / 2, 512));
             kBook = new KnoledgeBook(Content.Load<Texture2D>("Book1"));
+            imgStop = new Stop(Content.Load<Texture2D>("stop"));
             this.map = new MapBoundaries();
             this.mapObjects = new List<Rectangle>();
             //                      {
@@ -124,11 +128,11 @@ namespace SpriteAnimation
                 downTexture, standingLeft, standingDown, standingUp, this.mapObjects);
 
             // load music
-            startMelody = Content.Load<Song>("Sounds\\BoxCat_Games_-_24_-_Tricks");
-            MediaPlayer.Play(startMelody);
-            MediaPlayer.IsRepeating = true;
-            backgroundMusic = Content.Load<Song>("Sounds\\Inspiration");
-            burpSound = Content.Load<SoundEffect>("Sounds\\BurbSound");
+            //startMelody = Content.Load<Song>("Sounds\\BoxCat_Games_-_24_-_Tricks");
+            //MediaPlayer.Play(startMelody);
+            //MediaPlayer.IsRepeating = true;
+            //backgroundMusic = Content.Load<Song>("Sounds\\Inspiration");
+            //burpSound = Content.Load<SoundEffect>("Sounds\\BurbSound");
 
             //load score/time string
             messageFont = Content.Load<SpriteFont>("messageScoreTime");
@@ -144,7 +148,7 @@ namespace SpriteAnimation
             // TODO: Unload any non ContentManager content here
         }
 
-        
+
 
         public int GetDistanceFrom(KnoledgeBook book, Player hero)
         {
@@ -153,8 +157,11 @@ namespace SpriteAnimation
             float dx = centerBook.X - centerPlayer.X;
             float dy = centerBook.Y - centerPlayer.Y;
 
-            return (int) Math.Sqrt((dx * dx) + (dy * dy));
+            return (int)Math.Sqrt((dx * dx) + (dy * dy));
         }
+
+
+
 
         /// <summary>
         ///     Allows the game to run logic such as updating the world,
@@ -178,7 +185,7 @@ namespace SpriteAnimation
                     {
                         currentGameState = GameState.Playing;
                         MediaPlayer.Stop();
-                        MediaPlayer.Play(backgroundMusic);
+                        //   MediaPlayer.Play(backgroundMusic);
                         MediaPlayer.IsRepeating = true;
                         timer = 600;
                         score = 0;
@@ -193,7 +200,12 @@ namespace SpriteAnimation
                     break;
 
                 case GameState.Playing:
-                    
+
+                    hero.KeyListener();
+                    break;
+
+                case GameState.Level2:
+                    MediaPlayer.Stop();
                     hero.KeyListener();
                     break;
 
@@ -212,42 +224,82 @@ namespace SpriteAnimation
                     break;
             }
 
-                kBook.location = GetNewBookPositon();
-                timer --;
-                int secsLeft = timer / 30;
-                messageString = $"Time: {secsLeft} Score: {score}";
+            kBook.location = GetNewBookPositon();
 
-            if (timer == 0)
-            {
-                currentGameState = GameState.Options;
+            imgStop.locationStop = GetStopPosition();
+            timer--;
+            int secsLeft = timer / 30;
+            messageString = $"Time: {secsLeft} Score: {score}";
 
+            if (hero.HeroLocation.Y>=975)
+            { 
+                // currentGameState = GameState.Options;
+                currentGameState = GameState.Level2;
+                MediaPlayer.Stop();
                 timer = 600;
-                score = 0;
+                 
             }
 
             base.Update(gameTime);
         }
 
-        private Vector2 GetNewBookPositon ()
+        private Vector2 GetNewBookPositon()
         {
             if (GetDistanceFrom(kBook, hero) < 50)
             {
-                burpSound.Play(1.0f, 0.0f, 0.0f);
+                //     burpSound.Play(1.0f, 0.0f, 0.0f);
                 score += 100;
                 kBook.location = kBook.RandamPlace();
                 int num = 0;
-                while (num < mapObjects.Count)
+                bool flColl = true;
+                while (flColl)
                 {
-                    if (mapObjects[num].Contains(kBook.location))
+                    flColl = false;
+                    while (num < mapObjects.Count)
+                    {
+                        if (mapObjects[num].Contains(kBook.location))
+                        {
+                            flColl = true;
+                            break;
+                        }
+                        num++;
+                    }
+                    if (flColl == true)
                     {
                         kBook.location = kBook.RandamPlace();
-                        num = 0;
-                        continue;
                     }
-                    num++;
                 }
+
             }
             return kBook.location;
+        }
+
+
+        private Vector2 GetStopPosition()
+        {
+            if (score >= 500)
+            {
+                if (imgStop.locationStop.Y < 2000)
+                {
+                    mapObjects.RemoveAt(mapObjects.Count - 1);
+                }
+                imgStop.locationStop = new Vector2(513, 2000);
+            }
+            else
+            {
+                switch (currentGameState)
+                {
+                    case GameState.Playing:
+                        imgStop.locationStop = new Vector2(513, 880);
+
+                        break;
+                    case GameState.Level2:
+                        imgStop.locationStop = new Vector2(513, 880);
+
+                        break;
+                }
+            }
+            return imgStop.locationStop;
         }
         /// <summary>
         ///     This is called when the game should draw itself.
@@ -272,10 +324,11 @@ namespace SpriteAnimation
                     spriteBatch.Draw(bgrImage, position1, Color.White);
                     kBook.Draw(spriteBatch);
                     hero.AnimatedSprite.Draw(spriteBatch, hero.HeroLocation);
+                    imgStop.Draw(spriteBatch);
                     spriteBatch.DrawString(messageFont, messageString, messagePos, Color.DarkRed);
                     //Here we draw black boxes ontop of our objects to let us see how exactly we colide
                     //Coment the methods below to take off the black boxes
-                   //DrawRectangle(this.hero.HeroBoundaries, Color.Black);
+                    //DrawRectangle(this.hero.HeroBoundaries, Color.Black);
                     //DrawRectangle(this.kBook.BookBoundaries, Color.Black);
                     //DrawRectangle(new Rectangle(0, 0, 290, 143), Color.Black);
                     //DrawRectangle(new Rectangle(330, 305, 100, 75), Color.Black);
@@ -284,6 +337,12 @@ namespace SpriteAnimation
                     //------------------------------------------------------------
                     break;
 
+                case GameState.Level2:
+                    spriteBatch.Draw(brgLevel2, position1, Color.White);
+
+                    hero.HeroLocation = new Vector2(159, 0);
+                    hero.AnimatedSprite.Draw(spriteBatch, hero.HeroLocation);
+                    break;
                 case GameState.Options:
                     spriteBatch.Draw(menuBackground, new Rectangle(0, 0, screenWidth, screenHeight), Color.White);
                     buttonResume.Draw(spriteBatch);
@@ -306,7 +365,9 @@ namespace SpriteAnimation
         {
             MainMenu,
             Options,
-            Playing
+            Playing,
+            Level2
+
         }
 
     }

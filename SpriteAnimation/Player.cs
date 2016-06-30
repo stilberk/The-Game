@@ -82,7 +82,7 @@ namespace SpriteAnimation
             }
             set
             {
-                if (value.X < 1024 && value.X > 0 && value.Y < 1024 && value.X > 0)
+                if (value.X < 1024 && value.X > 0 && value.Y < 990 && value.X > -26)
                 {
                     this.heroLocation = value;
                     this.heroBoundaries.X = (int)value.X;
@@ -98,7 +98,7 @@ namespace SpriteAnimation
             this.heroBoundaries.Y = (int)location.Y;
             this.heroColide = CollisionControler(this.objOnMap, this.heroBoundaries);
 
-            if ((location.X < 960 && location.Y < 900) && (location.X > 0 && location.Y > 0) && !this.heroColide)
+            if ((location.X < 980 && location.Y < 990) && (location.X > -26 && location.Y > 0) && !this.heroColide)
             {
                 this.heroLocation = location;
                 this.heroBoundaries.X = (int)location.X;

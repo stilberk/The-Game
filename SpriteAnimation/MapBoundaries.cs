@@ -11,14 +11,14 @@ namespace SpriteAnimation
     public class MapBoundaries
     {
         private List<Rectangle> mapObj;
+        private Rectangle stop1;
+
         private Rectangle treesP1_1;
         private Rectangle treesP1_2;
-        private Rectangle treesP1_3;
-
+    
         private Rectangle treesP2_1;
         private Rectangle treesP2_2;
         private Rectangle treesP2_3;
-        private Rectangle treesP2_4;
         private Rectangle treesP3;
         private Rectangle treesP4;
         private Rectangle treesP5;
@@ -57,21 +57,20 @@ namespace SpriteAnimation
         {
             this.mapObj = new List<Rectangle>();
 
-            this.treesP1_1 = new Rectangle(0, 0, 116, 139);
+
+
+            this.treesP1_1 = new Rectangle(0, 0, 294, 140);
             this.mapObj.Add(this.treesP1_1);
             this.treesP1_2 = new Rectangle(116, 132, 133, 34);
             this.mapObj.Add(this.treesP1_2);
-            this.treesP1_3 = new Rectangle(260, 0, 17, 130);
-            this.mapObj.Add(this.treesP1_3);
+           
 
-            this.treesP2_1 = new Rectangle(345, 0, 40, 130);
+            this.treesP2_1 = new Rectangle(345, 0, 673, 144);
             this.mapObj.Add(this.treesP2_1);
             this.treesP2_2 = new Rectangle(375, 132, 130, 32);
             this.mapObj.Add(this.treesP2_2);
-            this.treesP2_3 = new Rectangle(509, 81, 250, 54);
+            this.treesP2_3 = new Rectangle(724, 96, 303, 70);
             this.mapObj.Add(this.treesP2_3);
-            this.treesP2_4 = new Rectangle(724, 96, 303, 70);
-            this.mapObj.Add(this.treesP2_4);
 
             this.treesP3 = new Rectangle(925, 321, 105, 79);
             this.mapObj.Add(this.treesP3);
@@ -152,6 +151,8 @@ namespace SpriteAnimation
             this.cactusP17 = new Rectangle(580, 902, 37, 152);
             this.mapObj.Add(this.cactusP17);
 
+            this.stop1 = new Rectangle(513, 882, 62, 52);
+            this.mapObj.Add(this.stop1);
         }
 
 
