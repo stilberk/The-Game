@@ -28,6 +28,8 @@ namespace FeynmanGame.Views
         private AnimatedSprite animatedSpriteStandingRight;
         private AnimatedSprite animatedSpriteStandingUp;
         private AnimatedSprite animatedSpriteUp;
+        private StatusBar statusbar;
+        private SpriteFont messageFont;
 
         public Renderer(SpriteBatch spriteBatch, ContentManager contentManager,Player hero)
         {
@@ -54,6 +56,9 @@ namespace FeynmanGame.Views
             animatedSpriteStandingRight = new AnimatedSprite(standingRight, 1, 1);
             animatedSpriteStandingDown = new AnimatedSprite(standingDown, 1, 1);
             animatedSpriteStandingUp = new AnimatedSprite(standingUp, 1, 1);
+
+            messageFont = Content.Load<SpriteFont>("MessagesFont");
+            statusbar = new StatusBar(messageFont);
         }
 
         public AnimatedSprite AnimatedSprite
@@ -177,6 +182,7 @@ namespace FeynmanGame.Views
             bgrImage = Content.Load<Texture2D>("Desert");
             spriteBatch.Draw(bgrImage, backgorunPossition, Color.White);
             spriteBatch.Draw(stopTexture, stop.Boundaries, Color.White);
+            spriteBatch.DrawString(statusbar.MessageFont, statusbar.MessageString, statusbar.МessagePos, statusbar.Color);
             PlayerDraw();
         }
 

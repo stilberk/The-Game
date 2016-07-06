@@ -4,21 +4,22 @@
   <Platform>Windows</Platform>
   <Config />
   <SourceFiles>
-    <File>C:/Users/fu/Desktop/GameProject/FeynmanMyFork/The-Game/FeynmanGame/Content/BACKGROUND.jpg</File>
-    <File>C:/Users/fu/Desktop/GameProject/FeynmanMyFork/The-Game/FeynmanGame/Content/Book1.png</File>
-    <File>C:/Users/fu/Desktop/GameProject/FeynmanMyFork/The-Game/FeynmanGame/Content/Desert.png</File>
-    <File>C:/Users/fu/Desktop/GameProject/FeynmanMyFork/The-Game/FeynmanGame/Content/DOWN.png</File>
-    <File>C:/Users/fu/Desktop/GameProject/FeynmanMyFork/The-Game/FeynmanGame/Content/LEFT.png</File>
-    <File>C:/Users/fu/Desktop/GameProject/FeynmanMyFork/The-Game/FeynmanGame/Content/Level2.png</File>
-    <File>C:/Users/fu/Desktop/GameProject/FeynmanMyFork/The-Game/FeynmanGame/Content/playBtn.png</File>
-    <File>C:/Users/fu/Desktop/GameProject/FeynmanMyFork/The-Game/FeynmanGame/Content/quitBtn.png</File>
-    <File>C:/Users/fu/Desktop/GameProject/FeynmanMyFork/The-Game/FeynmanGame/Content/resumeBtn.png</File>
-    <File>C:/Users/fu/Desktop/GameProject/FeynmanMyFork/The-Game/FeynmanGame/Content/RIGHT.png</File>
-    <File>C:/Users/fu/Desktop/GameProject/FeynmanMyFork/The-Game/FeynmanGame/Content/STANDINGDOWN.png</File>
-    <File>C:/Users/fu/Desktop/GameProject/FeynmanMyFork/The-Game/FeynmanGame/Content/STANDINGLEFT.png</File>
-    <File>C:/Users/fu/Desktop/GameProject/FeynmanMyFork/The-Game/FeynmanGame/Content/STANDINGRIGHT.png</File>
-    <File>C:/Users/fu/Desktop/GameProject/FeynmanMyFork/The-Game/FeynmanGame/Content/STANDINGUP.png</File>
-    <File>C:/Users/fu/Desktop/GameProject/FeynmanMyFork/The-Game/FeynmanGame/Content/stop.png</File>
-    <File>C:/Users/fu/Desktop/GameProject/FeynmanMyFork/The-Game/FeynmanGame/Content/UP.png</File>
+    <File>C:/Users/Alexander7337/Documents/GitHub/ProjectFeynman/The-Game/FeynmanGame/Content/BACKGROUND.jpg</File>
+    <File>C:/Users/Alexander7337/Documents/GitHub/ProjectFeynman/The-Game/FeynmanGame/Content/Book1.png</File>
+    <File>C:/Users/Alexander7337/Documents/GitHub/ProjectFeynman/The-Game/FeynmanGame/Content/Desert.png</File>
+    <File>C:/Users/Alexander7337/Documents/GitHub/ProjectFeynman/The-Game/FeynmanGame/Content/DOWN.png</File>
+    <File>C:/Users/Alexander7337/Documents/GitHub/ProjectFeynman/The-Game/FeynmanGame/Content/LEFT.png</File>
+    <File>C:/Users/Alexander7337/Documents/GitHub/ProjectFeynman/The-Game/FeynmanGame/Content/Level2.png</File>
+    <File>C:/Users/Alexander7337/Documents/GitHub/ProjectFeynman/The-Game/FeynmanGame/Content/playBtn.png</File>
+    <File>C:/Users/Alexander7337/Documents/GitHub/ProjectFeynman/The-Game/FeynmanGame/Content/quitBtn.png</File>
+    <File>C:/Users/Alexander7337/Documents/GitHub/ProjectFeynman/The-Game/FeynmanGame/Content/resumeBtn.png</File>
+    <File>C:/Users/Alexander7337/Documents/GitHub/ProjectFeynman/The-Game/FeynmanGame/Content/RIGHT.png</File>
+    <File>C:/Users/Alexander7337/Documents/GitHub/ProjectFeynman/The-Game/FeynmanGame/Content/STANDINGDOWN.png</File>
+    <File>C:/Users/Alexander7337/Documents/GitHub/ProjectFeynman/The-Game/FeynmanGame/Content/STANDINGLEFT.png</File>
+    <File>C:/Users/Alexander7337/Documents/GitHub/ProjectFeynman/The-Game/FeynmanGame/Content/STANDINGRIGHT.png</File>
+    <File>C:/Users/Alexander7337/Documents/GitHub/ProjectFeynman/The-Game/FeynmanGame/Content/STANDINGUP.png</File>
+    <File>C:/Users/Alexander7337/Documents/GitHub/ProjectFeynman/The-Game/FeynmanGame/Content/stop.png</File>
+    <File>C:/Users/Alexander7337/Documents/GitHub/ProjectFeynman/The-Game/FeynmanGame/Content/UP.png</File>
+    <File>C:/Users/Alexander7337/Documents/GitHub/ProjectFeynman/The-Game/FeynmanGame/Content/MessagesFont.spritefont</File>
   </SourceFiles>
 </SourceFileCollection>
