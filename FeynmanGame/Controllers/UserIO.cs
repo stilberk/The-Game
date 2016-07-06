@@ -34,7 +34,7 @@ namespace FeynmanGame.Controllers
                 renderer.AnimatedSprite = renderer.AnimatedSpriteRight;
                 lastDirection = "right";
                 Rectangle heroNewPosition = new Rectangle((int)hero.HeroLocation.X + hero.HeroSpeed,
-                                                (int)hero.HeroLocation.Y,Player.Width,Player.Hight);
+                                                (int)hero.HeroLocation.Y,Player.Width,Player.Height);
                 bool newPosCollide = ch.CollisionControler(heroNewPosition);
                 if (!newPosCollide)
                 {
@@ -47,7 +47,7 @@ namespace FeynmanGame.Controllers
                 renderer.AnimatedSprite = renderer.AnimatedSpriteLeft;
                 lastDirection = "left";
                 Rectangle heroNewPosition = new Rectangle((int)hero.HeroLocation.X - hero.HeroSpeed,
-                                (int)hero.HeroLocation.Y, Player.Width, Player.Hight);
+                                (int)hero.HeroLocation.Y, Player.Width, Player.Height);
                 bool newPosCollide = ch.CollisionControler(heroNewPosition);
                 if (!newPosCollide)
                 {
@@ -60,7 +60,7 @@ namespace FeynmanGame.Controllers
                 renderer.AnimatedSprite = renderer.AnimatedSpriteUp;
                 lastDirection = "up";
                 Rectangle heroNewPosition = new Rectangle((int)hero.HeroLocation.X,
-                                (int)hero.HeroLocation.Y - hero.HeroSpeed, Player.Width, Player.Hight);
+                                (int)hero.HeroLocation.Y - hero.HeroSpeed, Player.Width, Player.Height);
                 bool newPosCollide = ch.CollisionControler(heroNewPosition);
                 if (!newPosCollide)
                 {
@@ -73,7 +73,7 @@ namespace FeynmanGame.Controllers
                 renderer.AnimatedSprite = renderer.AnimatedSpriteDown;
                 lastDirection = "down";
                 Rectangle heroNewPosition = new Rectangle((int)hero.HeroLocation.X,
-                                (int)hero.HeroLocation.Y + hero.HeroSpeed, Player.Width, Player.Hight);
+                                (int)hero.HeroLocation.Y + hero.HeroSpeed, Player.Width, Player.Height);
                 bool newPosCollide = ch.CollisionControler(heroNewPosition);
                 if (!newPosCollide)
                 {

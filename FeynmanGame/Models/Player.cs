@@ -11,9 +11,9 @@ namespace FeynmanGame.Models
     public class Player 
     {
         private const int width = 35;
-        private const int hight = 49;
+        private const int height = 49;
         private const int herospeed = 15;
-        private const int stratLocationX = 304;
+        private const int stratLocationX = 295;
         private const int stratLocationY = 0;
         private bool heroColide;
 
@@ -24,7 +24,7 @@ namespace FeynmanGame.Models
         public Player()
         {
             this.heroLocation = new Vector2(stratLocationX, stratLocationY);
-            this.locationSize = new Rectangle((int)heroLocation.X, (int)heroLocation.Y, 35, 49);
+            this.locationSize = new Rectangle((int)heroLocation.X, (int)heroLocation.Y, width, height);
             this.newLocation = new Rectangle();
         }
         public Rectangle LocationSize
@@ -101,11 +101,11 @@ namespace FeynmanGame.Models
             }
         }
 
-        public static int Hight
+        public static int Height
         {
             get
             {
-                return hight;
+                return height;
             }
         }
 

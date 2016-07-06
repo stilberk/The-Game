@@ -15,7 +15,7 @@ namespace FeynmanGame.Models
 
         public Stop()
         {
-            locationStop = new Vector2(304, 100);
+            locationStop = new Vector2(310, 100);
             this.boundStop = new Rectangle(512, 885, 59, 59);
         }
 
