@@ -1,0 +1,82 @@
+c:\users\fu\documents\visual studio 2015\Projects\FeynmanGame\FeynmanGame\bin\Windows\x86\Debug\FeynmanGame.exe
+c:\users\fu\documents\visual studio 2015\Projects\FeynmanGame\FeynmanGame\bin\Windows\x86\Debug\FeynmanGame.pdb
+c:\users\fu\documents\visual studio 2015\Projects\FeynmanGame\FeynmanGame\bin\Windows\x86\Debug\MonoGame.Framework.dll
+c:\users\fu\documents\visual studio 2015\Projects\FeynmanGame\FeynmanGame\bin\Windows\x86\Debug\SharpDX.MediaFoundation.dll
+c:\users\fu\documents\visual studio 2015\Projects\FeynmanGame\FeynmanGame\bin\Windows\x86\Debug\SharpDX.dll
+c:\users\fu\documents\visual studio 2015\Projects\FeynmanGame\FeynmanGame\bin\Windows\x86\Debug\SharpDX.XAudio2.dll
+c:\users\fu\documents\visual studio 2015\Projects\FeynmanGame\FeynmanGame\bin\Windows\x86\Debug\SharpDX.DXGI.dll
+c:\users\fu\documents\visual studio 2015\Projects\FeynmanGame\FeynmanGame\bin\Windows\x86\Debug\SharpDX.Direct3D11.dll
+c:\users\fu\documents\visual studio 2015\Projects\FeynmanGame\FeynmanGame\bin\Windows\x86\Debug\SharpDX.Direct2D1.dll
+c:\users\fu\documents\visual studio 2015\Projects\FeynmanGame\FeynmanGame\bin\Windows\x86\Debug\SharpDX.XInput.dll
+c:\users\fu\documents\visual studio 2015\Projects\FeynmanGame\FeynmanGame\bin\Windows\x86\Debug\SharpDX.RawInput.dll
+c:\users\fu\documents\visual studio 2015\Projects\FeynmanGame\FeynmanGame\bin\Windows\x86\Debug\SharpDX.Direct3D9.dll
+c:\users\fu\documents\visual studio 2015\Projects\FeynmanGame\FeynmanGame\bin\Windows\x86\Debug\MonoGame.Framework.xml
+c:\users\fu\documents\visual studio 2015\Projects\FeynmanGame\FeynmanGame\bin\Windows\x86\Debug\SharpDX.MediaFoundation.xml
+c:\users\fu\documents\visual studio 2015\Projects\FeynmanGame\FeynmanGame\bin\Windows\x86\Debug\SharpDX.xml
+c:\users\fu\documents\visual studio 2015\Projects\FeynmanGame\FeynmanGame\bin\Windows\x86\Debug\SharpDX.XAudio2.xml
+c:\users\fu\documents\visual studio 2015\Projects\FeynmanGame\FeynmanGame\bin\Windows\x86\Debug\SharpDX.DXGI.xml
+c:\users\fu\documents\visual studio 2015\Projects\FeynmanGame\FeynmanGame\bin\Windows\x86\Debug\SharpDX.Direct3D11.xml
+c:\users\fu\documents\visual studio 2015\Projects\FeynmanGame\FeynmanGame\bin\Windows\x86\Debug\SharpDX.Direct2D1.xml
+c:\users\fu\documents\visual studio 2015\Projects\FeynmanGame\FeynmanGame\bin\Windows\x86\Debug\SharpDX.XInput.xml
+c:\users\fu\documents\visual studio 2015\Projects\FeynmanGame\FeynmanGame\bin\Windows\x86\Debug\SharpDX.RawInput.xml
+c:\users\fu\documents\visual studio 2015\Projects\FeynmanGame\FeynmanGame\bin\Windows\x86\Debug\SharpDX.Direct3D9.xml
+c:\users\fu\documents\visual studio 2015\Projects\FeynmanGame\FeynmanGame\obj\x86\Debug\FeynmanGame.csprojResolveAssemblyReference.cache
+c:\users\fu\documents\visual studio 2015\Projects\FeynmanGame\FeynmanGame\obj\x86\Debug\FeynmanGame.exe
+c:\users\fu\documents\visual studio 2015\Projects\FeynmanGame\FeynmanGame\obj\x86\Debug\FeynmanGame.pdb
+c:\users\fu\documents\visual studio 2015\Projects\FeynmanGame\FeynmanGame\bin\Windows\x86\Debug\Content\BACKGROUND.xnb
+c:\users\fu\documents\visual studio 2015\Projects\FeynmanGame\FeynmanGame\bin\Windows\x86\Debug\Content\Book1.xnb
+c:\users\fu\documents\visual studio 2015\Projects\FeynmanGame\FeynmanGame\bin\Windows\x86\Debug\Content\Desert.xnb
+c:\users\fu\documents\visual studio 2015\Projects\FeynmanGame\FeynmanGame\bin\Windows\x86\Debug\Content\DOWN.xnb
+c:\users\fu\documents\visual studio 2015\Projects\FeynmanGame\FeynmanGame\bin\Windows\x86\Debug\Content\LEFT.xnb
+c:\users\fu\documents\visual studio 2015\Projects\FeynmanGame\FeynmanGame\bin\Windows\x86\Debug\Content\Level2.xnb
+c:\users\fu\documents\visual studio 2015\Projects\FeynmanGame\FeynmanGame\bin\Windows\x86\Debug\Content\playBtn.xnb
+c:\users\fu\documents\visual studio 2015\Projects\FeynmanGame\FeynmanGame\bin\Windows\x86\Debug\Content\quitBtn.xnb
+c:\users\fu\documents\visual studio 2015\Projects\FeynmanGame\FeynmanGame\bin\Windows\x86\Debug\Content\resumeBtn.xnb
+c:\users\fu\documents\visual studio 2015\Projects\FeynmanGame\FeynmanGame\bin\Windows\x86\Debug\Content\RIGHT.xnb
+c:\users\fu\documents\visual studio 2015\Projects\FeynmanGame\FeynmanGame\bin\Windows\x86\Debug\Content\STANDINGDOWN.xnb
+c:\users\fu\documents\visual studio 2015\Projects\FeynmanGame\FeynmanGame\bin\Windows\x86\Debug\Content\STANDINGLEFT.xnb
+c:\users\fu\documents\visual studio 2015\Projects\FeynmanGame\FeynmanGame\bin\Windows\x86\Debug\Content\STANDINGRIGHT.xnb
+c:\users\fu\documents\visual studio 2015\Projects\FeynmanGame\FeynmanGame\bin\Windows\x86\Debug\Content\STANDINGUP.xnb
+c:\users\fu\documents\visual studio 2015\Projects\FeynmanGame\FeynmanGame\bin\Windows\x86\Debug\Content\stop.xnb
+c:\users\fu\documents\visual studio 2015\Projects\FeynmanGame\FeynmanGame\bin\Windows\x86\Debug\Content\UP.xnb
+C:\Users\fu\Desktop\GameProject\FeynmanMyFork\The-Game\FeynmanGame\obj\x86\Debug\FeynmanGame.exe
+C:\Users\fu\Desktop\GameProject\FeynmanMyFork\The-Game\FeynmanGame\obj\x86\Debug\FeynmanGame.pdb
+C:\Users\fu\Desktop\GameProject\FeynmanMyFork\The-Game\FeynmanGame\bin\Windows\x86\Debug\Content\BACKGROUND.xnb
+C:\Users\fu\Desktop\GameProject\FeynmanMyFork\The-Game\FeynmanGame\bin\Windows\x86\Debug\Content\Book1.xnb
+C:\Users\fu\Desktop\GameProject\FeynmanMyFork\The-Game\FeynmanGame\bin\Windows\x86\Debug\Content\Desert.xnb
+C:\Users\fu\Desktop\GameProject\FeynmanMyFork\The-Game\FeynmanGame\bin\Windows\x86\Debug\Content\DOWN.xnb
+C:\Users\fu\Desktop\GameProject\FeynmanMyFork\The-Game\FeynmanGame\bin\Windows\x86\Debug\Content\LEFT.xnb
+C:\Users\fu\Desktop\GameProject\FeynmanMyFork\The-Game\FeynmanGame\bin\Windows\x86\Debug\Content\Level2.xnb
+C:\Users\fu\Desktop\GameProject\FeynmanMyFork\The-Game\FeynmanGame\bin\Windows\x86\Debug\Content\playBtn.xnb
+C:\Users\fu\Desktop\GameProject\FeynmanMyFork\The-Game\FeynmanGame\bin\Windows\x86\Debug\Content\quitBtn.xnb
+C:\Users\fu\Desktop\GameProject\FeynmanMyFork\The-Game\FeynmanGame\bin\Windows\x86\Debug\Content\resumeBtn.xnb
+C:\Users\fu\Desktop\GameProject\FeynmanMyFork\The-Game\FeynmanGame\bin\Windows\x86\Debug\Content\RIGHT.xnb
+C:\Users\fu\Desktop\GameProject\FeynmanMyFork\The-Game\FeynmanGame\bin\Windows\x86\Debug\Content\STANDINGDOWN.xnb
+C:\Users\fu\Desktop\GameProject\FeynmanMyFork\The-Game\FeynmanGame\bin\Windows\x86\Debug\Content\STANDINGLEFT.xnb
+C:\Users\fu\Desktop\GameProject\FeynmanMyFork\The-Game\FeynmanGame\bin\Windows\x86\Debug\Content\STANDINGRIGHT.xnb
+C:\Users\fu\Desktop\GameProject\FeynmanMyFork\The-Game\FeynmanGame\bin\Windows\x86\Debug\Content\STANDINGUP.xnb
+C:\Users\fu\Desktop\GameProject\FeynmanMyFork\The-Game\FeynmanGame\bin\Windows\x86\Debug\Content\stop.xnb
+C:\Users\fu\Desktop\GameProject\FeynmanMyFork\The-Game\FeynmanGame\bin\Windows\x86\Debug\Content\UP.xnb
+C:\Users\fu\Desktop\GameProject\FeynmanMyFork\The-Game\FeynmanGame\bin\Windows\x86\Debug\FeynmanGame.exe
+C:\Users\fu\Desktop\GameProject\FeynmanMyFork\The-Game\FeynmanGame\bin\Windows\x86\Debug\FeynmanGame.pdb
+C:\Users\fu\Desktop\GameProject\FeynmanMyFork\The-Game\FeynmanGame\bin\Windows\x86\Debug\MonoGame.Framework.dll
+C:\Users\fu\Desktop\GameProject\FeynmanMyFork\The-Game\FeynmanGame\bin\Windows\x86\Debug\SharpDX.MediaFoundation.dll
+C:\Users\fu\Desktop\GameProject\FeynmanMyFork\The-Game\FeynmanGame\bin\Windows\x86\Debug\SharpDX.dll
+C:\Users\fu\Desktop\GameProject\FeynmanMyFork\The-Game\FeynmanGame\bin\Windows\x86\Debug\SharpDX.XAudio2.dll
+C:\Users\fu\Desktop\GameProject\FeynmanMyFork\The-Game\FeynmanGame\bin\Windows\x86\Debug\SharpDX.DXGI.dll
+C:\Users\fu\Desktop\GameProject\FeynmanMyFork\The-Game\FeynmanGame\bin\Windows\x86\Debug\SharpDX.Direct3D11.dll
+C:\Users\fu\Desktop\GameProject\FeynmanMyFork\The-Game\FeynmanGame\bin\Windows\x86\Debug\SharpDX.Direct2D1.dll
+C:\Users\fu\Desktop\GameProject\FeynmanMyFork\The-Game\FeynmanGame\bin\Windows\x86\Debug\SharpDX.XInput.dll
+C:\Users\fu\Desktop\GameProject\FeynmanMyFork\The-Game\FeynmanGame\bin\Windows\x86\Debug\SharpDX.RawInput.dll
+C:\Users\fu\Desktop\GameProject\FeynmanMyFork\The-Game\FeynmanGame\bin\Windows\x86\Debug\SharpDX.Direct3D9.dll
+C:\Users\fu\Desktop\GameProject\FeynmanMyFork\The-Game\FeynmanGame\bin\Windows\x86\Debug\MonoGame.Framework.xml
+C:\Users\fu\Desktop\GameProject\FeynmanMyFork\The-Game\FeynmanGame\bin\Windows\x86\Debug\SharpDX.MediaFoundation.xml
+C:\Users\fu\Desktop\GameProject\FeynmanMyFork\The-Game\FeynmanGame\bin\Windows\x86\Debug\SharpDX.xml
+C:\Users\fu\Desktop\GameProject\FeynmanMyFork\The-Game\FeynmanGame\bin\Windows\x86\Debug\SharpDX.XAudio2.xml
+C:\Users\fu\Desktop\GameProject\FeynmanMyFork\The-Game\FeynmanGame\bin\Windows\x86\Debug\SharpDX.DXGI.xml
+C:\Users\fu\Desktop\GameProject\FeynmanMyFork\The-Game\FeynmanGame\bin\Windows\x86\Debug\SharpDX.Direct3D11.xml
+C:\Users\fu\Desktop\GameProject\FeynmanMyFork\The-Game\FeynmanGame\bin\Windows\x86\Debug\SharpDX.Direct2D1.xml
+C:\Users\fu\Desktop\GameProject\FeynmanMyFork\The-Game\FeynmanGame\bin\Windows\x86\Debug\SharpDX.XInput.xml
+C:\Users\fu\Desktop\GameProject\FeynmanMyFork\The-Game\FeynmanGame\bin\Windows\x86\Debug\SharpDX.RawInput.xml
+C:\Users\fu\Desktop\GameProject\FeynmanMyFork\The-Game\FeynmanGame\bin\Windows\x86\Debug\SharpDX.Direct3D9.xml
+C:\Users\fu\Desktop\GameProject\FeynmanMyFork\The-Game\FeynmanGame\obj\x86\Debug\FeynmanGame.csprojResolveAssemblyReference.cache
